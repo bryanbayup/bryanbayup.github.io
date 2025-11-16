@@ -69,6 +69,29 @@
             0%, 100% { opacity: 1; }
             50% { opacity: 0; }
         }
+        
+        /* 4. Canvas untuk Animasi Matrix/CMD */
+        #matrix-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Di belakang foto */
+            border-radius: 50%; /* Sesuaikan dengan bentuk foto */
+            opacity: 0.6; /* Sedikit transparan agar tidak terlalu ramai */
+        }
+        
+        /* Kontainer foto */
+        .photo-container {
+            position: relative; /* Diperlukan untuk canvas 'absolute' */
+            z-index: 5;
+        }
+        
+        .photo-image {
+            position: relative; /* Di atas canvas */
+            z-index: 2;
+        }
 
         /* Custom shadow professional */
         .professional-shadow {
@@ -149,17 +172,18 @@
                     </div>
                 </div>
 
-                <!-- Kolom 2: Foto -->
+                <!-- Kolom 2: Foto & Animasi CMD -->
                 <div class="flex justify-center md:justify-end animate-slide-in-left">
-                    <div class="p-2 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 shadow-2xl shadow-indigo-500/30">
-                         <!-- 
-                            GANTI URL INI DENGAN FOTO ANDA! 
-                            Upload foto Anda ke repo GitHub, lalu ganti URL di bawah ini.
-                            Contoh: 'https://github.com/username/repo/raw/main/foto-profil.jpg'
-                         -->
-                         <img src="https://github.com/bryanbayup/bryanbayup.github.io/blob/main/Photo_Briyan Bayu Pangestu.jpg" 
+                    <!-- Kontainer untuk foto dan canvas -->
+                    <div class="p-2 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 shadow-2xl shadow-indigo-500/30 photo-container">
+                         
+                         <!-- Canvas untuk Animasi CMD (BARU) -->
+                         <canvas id="matrix-canvas"></canvas>
+                         
+                         <!-- FOTO ANDA (SUDAH DIPERBARUI) -->
+                         <img src="https://raw.githubusercontent.com/bryanbayup/bryanbayup.github.io/main/Photo_Briyan%20Bayu%20Pangestu.jpg" 
                               alt="Foto Briyan Bayu Pangestu" 
-                              class="rounded-full w-64 h-64 md:w-96 md:h-96 object-cover border-4 border-white">
+                              class="rounded-full w-64 h-64 md:w-96 md:h-96 object-cover border-4 border-white photo-image">
                     </div>
                 </div>
 
@@ -383,8 +407,12 @@
                     I'm always open to new opportunities, collaborations, or just a chat about technology.
                 </p>
                 
-                <!-- Contact Links -->
-                <div class="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-12 fade-in-up" style="transition-delay: 300ms;">
+                <!-- 
+                  PERBAIKAN ALIGNMENT (Alignment Fix):
+                  'items-start' untuk rata kiri di mobile (flex-col)
+                  'md:items-center' untuk rata tengah vertikal di desktop (md:flex-row)
+                -->
+                <div class="flex flex-col md:flex-row justify-center items-start md:items-center space-y-8 md:space-y-0 md:space-x-12 max-w-lg mx-auto md:max-w-none fade-in-up" style="transition-delay: 300ms;">
                     
                     <!-- Email -->
                     <a href="mailto:bryanazza836@gmail.com" class="group flex items-center text-xl font-medium text-indigo-100 hover:text-white transition-all duration-300">
@@ -399,7 +427,7 @@
                     </a>
                     
                     <!-- Website -->
-                    <a href="https://briyanbayupangestu.me" target="_blank" rel="noopener noreferrer" class="group flex items-center text-xl font-medium text-indigo-100 hover:text-white transition-all duration-300">
+                    <a href="httpsia://briyanbayupangestu.me" target="_blank" rel="noopener noreferrer" class="group flex items-center text-xl font-medium text-indigo-100 hover:text-white transition-all duration-300">
                         <i data-lucide="globe" class="w-7 h-7 mr-3 text-indigo-300 group-hover:text-white transition-all"></i>
                         <span>Portfolio (briyanbayupangestu.me)</span>
                     </a>
@@ -419,8 +447,10 @@
 
     <!-- JavaScript Block -->
     <script>
-        // Wait for the DOM to be fully loaded before running scripts
-        document.addEventListener('DOMContentLoaded', (event) => {
+        // PERUBAHAN: Ganti 'DOMContentLoaded' dadi 'window.onload'
+        // Niki kangge mesthekake sedaya gambar (foto sampeyan) sampun rampung di-load
+        // sakderengipun skrip animasi canvas mlaku.
+        window.onload = (event) => {
             
             // 1. Initialize Lucide Icons
             try {
@@ -433,14 +463,18 @@
             const menuBtn = document.getElementById('menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             
-            menuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
+            if (menuBtn && mobileMenu) { // Priksa menawi elemen wonten
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
 
             // Close mobile menu when a link is clicked
             document.querySelectorAll('#mobile-menu a').forEach(link => {
                 link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
+                    if (mobileMenu) {
+                        mobileMenu.classList.add('hidden');
+                    }
                 });
             });
 
@@ -504,7 +538,81 @@
                 // Mulai efek setelah jeda singkat
                 setTimeout(type, 500);
             }
-        });
+            
+            // 5. Animasi CMD/Matrix Canvas (BARU)
+            const canvas = document.getElementById('matrix-canvas');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                
+                // Set ukuran canvas agar sesuai dengan kontainer (foto)
+                const container = canvas.parentElement;
+                
+                // PENTING: Ukuran dipunpendhet saking 'clientWidth' kangge ngatasi masalah '0x0'
+                if (container && container.clientWidth > 0) {
+                    canvas.width = container.clientWidth;
+                    canvas.height = container.clientHeight;
+
+                    // Karakter yang akan "hujan"
+                    let katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン';
+                    let latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+                    let chars = (katakana + latin).split('');
+
+                    let fontSize = 10;
+                    let columns = Math.floor(canvas.width / fontSize);
+
+                    // Array untuk melacak posisi y dari setiap "drop"
+                    let drops = [];
+                    for(let x = 0; x < columns; x++) {
+                        drops[x] = 1;
+                    }
+
+                    function drawMatrix() {
+                        // Latar belakang semi-transparan untuk efek 'fading'
+                        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                        
+                        // Warna teks (menggunakan warna tema indigo)
+                        ctx.fillStyle = '#4f46e5'; // Indigo-600
+                        ctx.font = fontSize + 'px arial';
+
+                        // Loop untuk setiap kolom
+                        for(let i = 0; i < drops.length; i++) {
+                            // Pilih karakter acak
+                            let text = chars[Math.floor(Math.random() * chars.length)];
+                            // Gambar karakter
+                            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                            
+                            // Kirim 'drop' kembali ke atas jika sudah mencapai dasar
+                            // Tambahkan sedikit random agar tidak seragam
+                            if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                                drops[i] = 0;
+                            }
+                            
+                            // Naikkan posisi y
+                            drops[i]++;
+                        }
+                    }
+                    
+                    // Menjalankan animasi
+                    setInterval(drawMatrix, 40); // Kecepatan animasi
+
+                    // Menyesuaikan jika ukuran window berubah
+                    window.addEventListener('resize', () => {
+                        if (container) {
+                            canvas.width = container.clientWidth;
+                            canvas.height = container.clientHeight;
+                            columns = Math.floor(canvas.width / fontSize);
+                            drops = [];
+                            for(let x = 0; x < columns; x++) {
+                                drops[x] = 1;
+                            }
+                        }
+                    });
+                } else {
+                    console.error("Canvas container has no size, Matrix animation failed to start.");
+                }
+            }
+        };
     </script>
 
 </body>
