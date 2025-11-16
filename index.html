@@ -151,8 +151,7 @@
             <a href="#home" class="block px-6 py-3 text-slate-700 hover:bg-slate-50 font-medium">Home</a>
             <a href="#about" class="block px-6 py-3 text-slate-700 hover:bg-slate-50 font-medium">About</a>
             <a href="#experience" class="block px-6 py-3 text-slate-700 hover:bg-slate-50 font-medium">Experience</a>
-            <a href="#certifications" class="block px-6 py-3 text-slate-700 hover:bg-slate-50 font-medium">Certifications</a>
-            <a href="#contact" class="block px-6 py-3 text-indigo-600 hover:bg-indigo-50 font-semibold">Contact</a>
+            <a href="#certifications" class="block px-6 py-3 text-slate-700 hover:bg-indigo-50 font-semibold">Contact</a>
         </div>
     </header>
 
@@ -160,58 +159,65 @@
     <!-- Memberi 'position: relative' supados saged katingal ing inggilipun canvas partikel -->
     <main class="relative z-10">
 
-        <!-- 1. Hero Section -->
-        <!-- 'bg-white' niki penting supados mboten transparan nembus teng partikel -->
-        <section id="home" class="min-h-screen flex items-center pt-28 pb-16 bg-white overflow-x-hidden">
-            <div class="container max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                
-                <!-- Kolom 1: Teks -->
-                <div class="text-center md:text-left animate-slide-in-right">
-                    <span class="text-lg md:text-xl font-medium text-indigo-600">
-                        Hello, I'm
-                    </span>
-                    <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 mt-2 mb-4">
-                        Briyan Bayu Pangestu
-                    </h1>
-                    <p class="text-2xl md:text-3xl text-slate-800 font-semibold mb-6 h-16 md:h-10">
-                        I'm an <span id="typewriter" class="text-indigo-600 font-bold"></span><span class="type-cursor">|</span>
-                    </p>
-                    <p class="text-lg md:text-xl text-slate-600 max-w-xl mx-auto md:mx-0 mb-10">
-                        Combining hands-on network & server management with a growing expertise in machine learning to build practical, real-world solutions.
-                    </p>
-                    <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
-                        <a href="#contact" class="text-lg bg-indigo-600 text-white px-8 py-3.5 rounded-lg font-medium hover:bg-indigo-700 shadow-lg shadow-indigo-500/20 hover:shadow-xl hover:shadow-indigo-500/30 transform hover:-translate-y-1 transition-all duration-300">
-                            Get In Touch
-                        </a>
-                        <a href="#experience" class="text-lg bg-white text-slate-700 px-8 py-3.5 rounded-lg font-medium hover:bg-slate-100 border border-slate-200 shadow-sm hover:shadow-md transform hover:-translate-y-1 transition-all duration-300">
-                            Career History
-                        </a>
+        <!-- 
+          PERBAIKAN: 'bg-white' diilangi supados canvas partikel katingal.
+          Kagem nambal, kula tambahi 'bg-white' ing kontainer ingkang luwih alit.
+        -->
+        <section id="home" class="min-h-screen flex items-center pt-28 pb-16 overflow-x-hidden">
+            <div class="container max-w-7xl mx-auto px-6">
+                <!-- Dibungkus 'bg-white' supados katingal resik ing inggil partikel -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white/90 backdrop-blur-sm p-8 md:p-12 rounded-2xl professional-shadow">
+                    
+                    <!-- Kolom 1: Teks -->
+                    <div class="text-center md:text-left animate-slide-in-right">
+                        <span class="text-lg md:text-xl font-medium text-indigo-600">
+                            Hello, I'm
+                        </span>
+                        <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 mt-2 mb-4">
+                            Briyan Bayu Pangestu
+                        </h1>
+                        <p class="text-2xl md:text-3xl text-slate-800 font-semibold mb-6 h-16 md:h-10">
+                            I'm an <span id="typewriter" class="text-indigo-600 font-bold"></span><span class="type-cursor">|</span>
+                        </p>
+                        <p class="text-lg md:text-xl text-slate-600 max-w-xl mx-auto md:mx-0 mb-10">
+                            Combining hands-on network & server management with a growing expertise in machine learning to build practical, real-world solutions.
+                        </p>
+                        <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
+                            <a href="#contact" class="text-lg bg-indigo-600 text-white px-8 py-3.5 rounded-lg font-medium hover:bg-indigo-700 shadow-lg shadow-indigo-500/20 hover:shadow-xl hover:shadow-indigo-500/30 transform hover:-translate-y-1 transition-all duration-300">
+                                Get In Touch
+                            </a>
+                            <a href="#experience" class="text-lg bg-white text-slate-700 px-8 py-3.5 rounded-lg font-medium hover:bg-slate-100 border border-slate-200 shadow-sm hover:shadow-md transform hover:-translate-y-1 transition-all duration-300">
+                                Career History
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Kolom 2: Foto & Animasi CMD -->
+                    <div class="flex justify-center md:justify-end animate-slide-in-left">
+                        <!-- Kontainer untuk foto dan canvas -->
+                        <div class="p-2 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 shadow-2xl shadow-indigo-500/30 photo-container">
+                             
+                             <!-- Canvas untuk Animasi CMD (BARU) -->
+                             <canvas id="matrix-canvas"></canvas>
+                             
+                             <!-- FOTO ANDA (SUDAH DIPERBARUI) -->
+                             <img src="https://raw.githubusercontent.com/bryanbayup/bryanbayup.github.io/main/Photo_Briyan%20Bayu%20Pangestu.jpg" 
+                                  alt="Foto Briyan Bayu Pangestu" 
+                                  class="rounded-full w-64 h-64 md:w-96 md:h-96 object-cover border-4 border-white photo-image">
+                        </div>
                     </div>
                 </div>
-
-                <!-- Kolom 2: Foto & Animasi CMD -->
-                <div class="flex justify-center md:justify-end animate-slide-in-left">
-                    <!-- Kontainer untuk foto dan canvas -->
-                    <div class="p-2 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 shadow-2xl shadow-indigo-500/30 photo-container">
-                         
-                         <!-- Canvas untuk Animasi CMD (BARU) -->
-                         <canvas id="matrix-canvas"></canvas>
-                         
-                         <!-- FOTO ANDA (SUDAH DIPERBARUI) -->
-                         <img src="https://raw.githubusercontent.com/bryanbayup/bryanbayup.github.io/main/Photo_Briyan%20Bayu%20Pangestu.jpg" 
-                              alt="Foto Briyan Bayu Pangestu" 
-                              class="rounded-full w-64 h-64 md:w-96 md:h-96 object-cover border-4 border-white photo-image">
-                    </div>
-                </div>
-
             </div>
         </section>
 
-        <!-- 2. About Me Section -->
-        <section id="about" class="py-24 bg-slate-50">
+        <!-- 
+          PERBAIKAN: 'bg-slate-50' diilangi supados canvas partikel katingal.
+          Konten dibungkus 'bg-slate-50/90'.
+        -->
+        <section id="about" class="py-24">
             <div class="container max-w-7xl mx-auto px-6">
-                <!-- Centered text block for a clean, professional look -->
-                <div class="max-w-3xl mx-auto text-center">
+                <!-- Dibungkus 'bg-slate-50/90' supados katingal resik ing inggil partikel -->
+                <div class="max-w-3xl mx-auto text-center bg-slate-50/90 backdrop-blur-sm p-8 md:p-12 rounded-2xl professional-shadow">
                     <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6 fade-in-up">
                         About Me
                     </h2>
@@ -233,188 +239,201 @@
             </div>
         </section>
 
-        <!-- 3. Experience Section -->
-        <section id="experience" class="py-24 bg-white">
+        <!-- 
+          PERBAIKAN: 'bg-white' diilangi.
+          Konten dibungkus 'bg-white/90'.
+        -->
+        <section id="experience" class="py-24">
             <div class="container max-w-7xl mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 fade-in-up">
-                    Professional Experience
-                </h2>
-                
-                <!-- Single-sided Timeline Container -->
-                <div class="relative max-w-2xl mx-auto">
-                    <!-- The vertical timeline line -->
-                    <div class="absolute left-3 top-2 h-full w-0.5 bg-indigo-200" aria-hidden="true"></div>
+                <!-- Dibungkus 'bg-white/90' supados katingal resik ing inggil partikel -->
+                <div class="max-w-3xl mx-auto bg-white/90 backdrop-blur-sm p-8 md:p-12 rounded-2xl professional-shadow">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 fade-in-up">
+                        Professional Experience
+                    </h2>
+                    
+                    <!-- Single-sided Timeline Container -->
+                    <div class="relative max-w-2xl mx-auto">
+                        <!-- The vertical timeline line -->
+                        <div class="absolute left-3 top-2 h-full w-0.5 bg-indigo-200" aria-hidden="true"></div>
 
-                    <div class="space-y-12">
+                        <div class="space-y-12">
 
-                        <!-- Item 1: Transon Bumindo Resources -->
-                        <div class="relative pl-12 fade-in-up">
-                            <!-- Timeline Dot & Icon -->
-                            <div class="absolute left-0 top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 shadow-md">
-                                <i data-lucide="briefcase" class="w-3.5 h-3.5 text-white"></i>
+                            <!-- Item 1: Transon Bumindo Resources -->
+                            <div class="relative pl-12 fade-in-up">
+                                <!-- Timeline Dot & Icon -->
+                                <div class="absolute left-0 top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 shadow-md">
+                                    <i data-lucide="briefcase" class="w-3.5 h-3.5 text-white"></i>
+                                </div>
+                                <!-- Content -->
+                                <p class="text-sm text-slate-500 mb-1">July 2022 - Aug 2025 (3 yrs 2 mos)</p>
+                                <h3 class="text-2xl font-semibold text-slate-900">IT Officer</h3>
+                                <p class="text-lg text-slate-700">Transon Bumindo Resources</p>
+                                <p class="text-sm text-slate-600 mb-2">Morowali, Central Sulawesi, Indonesia</p>
+                                <p class="text-slate-600">Handled day-to-day systems, networks, and technical operations for a mining company.</p>
                             </div>
-                            <!-- Content -->
-                            <p class="text-sm text-slate-500 mb-1">July 2022 - Aug 2025 (3 yrs 2 mos)</p>
-                            <h3 class="text-2xl font-semibold text-slate-900">IT Officer</h3>
-                            <p class="text-lg text-slate-700">Transon Bumindo Resources</p>
-                            <p class="text-sm text-slate-600 mb-2">Morowali, Central Sulawesi, Indonesia</p>
-                            <p class="text-slate-600">Handled day-to-day systems, networks, and technical operations for a mining company.</p>
-                        </div>
 
-                        <!-- Item 2: Coding Camp DBS -->
-                        <div class="relative pl-12 fade-in-up">
-                            <!-- Timeline Dot & Icon -->
-                            <div class="absolute left-0 top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 shadow-md">
-                                <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-white"></i>
+                            <!-- Item 2: Coding Camp DBS -->
+                            <div class="relative pl-12 fade-in-up">
+                                <!-- Timeline Dot & Icon -->
+                                <div class="absolute left-0 top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 shadow-md">
+                                    <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-white"></i>
+                                </div>
+                                <!-- Content -->
+                                <p class="text-sm text-slate-500 mb-1">Feb 2025 - July 2025 (6 mos)</p>
+                                <h3 class="text-2xl font-semibold text-slate-900">Coding Camp - Machine Learning Engineer</h3>
+                                <p class="text-lg text-slate-700">Coding Camp powered by DBS Foundation</p>
+                                <p class="mt-2 text-slate-600">Completed an intensive, selective IT program focused on ML, finance, English, and soft skills.</p>
                             </div>
-                            <!-- Content -->
-                            <p class="text-sm text-slate-500 mb-1">Feb 2025 - July 2025 (6 mos)</p>
-                            <h3 class="text-2xl font-semibold text-slate-900">Coding Camp - Machine Learning Engineer</h3>
-                            <p class="text-lg text-slate-700">Coding Camp powered by DBS Foundation</p>
-                            <p class="mt-2 text-slate-600">Completed an intensive, selective IT program focused on ML, finance, English, and soft skills.</p>
-                        </div>
 
-                        <!-- Item 3: Bangkit -->
-                        <div class="relative pl-12 fade-in-up">
-                            <!-- Timeline Dot & Icon -->
-                            <div class="absolute left-0 top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 shadow-md">
-                                <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-white"></i>
+                            <!-- Item 3: Bangkit -->
+                            <div class="relative pl-12 fade-in-up">
+                                <!-- Timeline Dot & Icon -->
+                                <div class="absolute left-0 top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 shadow-md">
+                                    <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-white"></i>
+                                </div>
+                                <!-- Content -->
+                                <p class="text-sm text-slate-500 mb-1">Sep 2024 - Dec 2024 (4 mos)</p>
+                                <h3 class="text-2xl font-semibold text-slate-900">Machine Learning Cohort</h3>
+                                <p class="text-lg text-slate-700">Bangkit (Google, Goto, Traveloka)</p>
+                                <p class="mt-2 text-slate-600">Participated in an intensive program working on real-world ML projects and case studies.</p>
                             </div>
-                            <!-- Content -->
-                            <p class="text-sm text-slate-500 mb-1">Sep 2024 - Dec 2024 (4 mos)</p>
-                            <h3 class="text-2xl font-semibold text-slate-900">Machine Learning Cohort</h3>
-                            <p class="text-lg text-slate-700">Bangkit (Google, Goto, Traveloka)</p>
-                            <p class="mt-2 text-slate-600">Participated in an intensive program working on real-world ML projects and case studies.</p>
-                        </div>
 
-                        <!-- Item 4: PT. TELKOM AKSES -->
-                        <div class="relative pl-12 fade-in-up">
-                            <!-- Timeline Dot & Icon -->
-                            <div class="absolute left-0 top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 shadow-md">
-                                <i data-lucide="briefcase" class="w-3.5 h-3.5 text-white"></i>
+                            <!-- Item 4: PT. TELKOM AKSES -->
+                            <div class="relative pl-12 fade-in-up">
+                                <!-- Timeline Dot & Icon -->
+                                <div class="absolute left-0 top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 shadow-md">
+                                    <i data-lucide="briefcase" class="w-3.5 h-3.5 text-white"></i>
+                                </div>
+                                <!-- Content -->
+                                <p class="text-sm text-slate-500 mb-1">Sep 2021 - Feb 2022 (6 mos)</p>
+                                <h3 class="text-2xl font-semibold text-slate-900">Technical Assistant Leader</h3>
+                                <p class="text-lg text-slate-700">PT. TELKOM AKSES</p>
+                                <p class="text-sm text-slate-600 mb-2">Malang, East Java, Indonesia</p>
+                                <p class="text-slate-600">Supported telecom operations and field technical assistance.</p>
                             </div>
-                            <!-- Content -->
-                            <p class="text-sm text-slate-500 mb-1">Sep 2021 - Feb 2022 (6 mos)</p>
-                            <h3 class="text-2xl font-semibold text-slate-900">Technical Assistant Leader</h3>
-                            <p class="text-lg text-slate-700">PT. TELKOM AKSES</p>
-                            <p class="text-sm text-slate-600 mb-2">Malang, East Java, Indonesia</p>
-                            <p class="text-slate-600">Supported telecom operations and field technical assistance.</p>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 4. Certifications Section -->
-        <section id="certifications" class="py-24 bg-slate-50">
+        <!-- 
+          PERBAIKAN: 'bg-slate-50' diilangi.
+          Konten dibungkus 'bg-slate-50/90'.
+        -->
+        <section id="certifications" class="py-24">
             <div class="container max-w-7xl mx-auto px-6">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 fade-in-up">
-                    Certifications & Skills
-                </h2>
-                <p class="text-center text-lg text-slate-600 mb-16 max-w-2xl mx-auto fade-in-up" style="transition-delay: 150ms;">
-                    A commitment to continuous learning and skill validation across key technology domains.
-                </p>
+                <!-- Dibungkus 'bg-slate-50/90' supados katingal resik ing inggil partikel -->
+                <div class="bg-slate-50/90 backdrop-blur-sm p-8 md:p-12 rounded-2xl professional-shadow">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 fade-in-up">
+                        Certifications & Skills
+                    </h2>
+                    <p class="text-center text-lg text-slate-600 mb-16 max-w-2xl mx-auto fade-in-up" style="transition-delay: 150ms;">
+                        A commitment to continuous learning and skill validation across key technology domains.
+                    </p>
 
-                <!-- Certification Categories -->
-                <div class="space-y-16">
+                    <!-- Certification Categories -->
+                    <div class="space-y-16">
 
-                    <!-- Category 1: Network, Cloud & Infrastructure -->
-                    <div class="fade-in-up">
-                        <h3 class="text-2xl font-semibold text-slate-800 mb-8 pb-3 border-b-2 border-indigo-200/80 flex items-center">
-                            <i data-lucide="network" class="w-6 h-6 mr-3 text-indigo-600"></i>
-                            Network, Cloud & Infrastructure
-                        </h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <!-- Certification Card -->
-                            <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
-                                <h4 class="text-lg font-semibold text-indigo-700">Mikrotik Certified Network Associate</h4>
-                                <p class="text-slate-600">MikroTik</p>
-                            </div>
-                            <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
-                                <h4 class="text-lg font-semibold text-indigo-700">HCIA-AI</h4>
-                                <p class="text-slate-600">Huawei</p>
-                            </div>
-                            <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
-                                <h4 class="text-lg font-semibold text-indigo-700">CCNAv7</h4>
-                                <p class="text-slate-600">Cisco Networking Academy</p>
-                            </div>
-                            <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
-                                <h4 class="text-lg font-semibold text-indigo-700">CCNA: Introduction to Networks</h4>
-                                <p class="text-slate-600">Cisco</p>
-                            </div>
-                            <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
-                                <h4 class="text-lg font-semibold text-indigo-700">Cloud Practitioner Essentials (AWS)</h4>
-                                <p class="text-slate-600">Dicoding Indonesia</p>
+                        <!-- Category 1: Network, Cloud & Infrastructure -->
+                        <div class="fade-in-up">
+                            <h3 class="text-2xl font-semibold text-slate-800 mb-8 pb-3 border-b-2 border-indigo-200/80 flex items-center">
+                                <i data-lucide="network" class="w-6 h-6 mr-3 text-indigo-600"></i>
+                                Network, Cloud & Infrastructure
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <!-- Certification Card -->
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">Mikrotik Certified Network Associate</h4>
+                                    <p class="text-slate-600">MikroTik</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">HCIA-AI</h4>
+                                    <p class="text-slate-600">Huawei</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">CCNAv7</h4>
+                                    <p class="text-slate-600">Cisco Networking Academy</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">CCNA: Introduction to Networks</h4>
+                                    <p class="text-slate-600">Cisco</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">Cloud Practitioner Essentials (AWS)</h4>
+                                    <p class="text-slate-600">Dicoding Indonesia</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Category 2: Python & Data Analysis -->
-                    <div class="fade-in-up">
-                        <h3 class="text-2xl font-semibold text-slate-800 mb-8 pb-3 border-b-2 border-indigo-200/80 flex items-center">
-                            <i data-lucide="code-2" class="w-6 h-6 mr-3 text-indigo-600"></i>
-                            Python Programming & Data Analysis
-                        </h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
-                                <h4 class="text-lg font-semibold text-indigo-700">Python for Beginners</h4>
-                                <p class="text-slate-600">Dicoding Academy</p>
-                            </div>
-                            <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
-                                <h4 class="text-lg font-semibold text-indigo-700">Using Python to Interact with the Operating System</h4>
-                                <p class="text-slate-600">Google</p>
-                            </div>
-                            <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
-                                <h4 class="text-lg font-semibold text-indigo-700">Data Analysis with Python</h4>
-                                <p class="text-slate-600">Dicoding Indonesia</p>
-                            </div>
-                            <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
-                                <h4 class="text-lg font-semibold text-indigo-700">Linear Algebra for ML & Data Science</h4>
-                                <p class="text-slate-600">DeepLearning.AI</p>
+                        <!-- Category 2: Python & Data Analysis -->
+                        <div class="fade-in-up">
+                            <h3 class="text-2xl font-semibold text-slate-800 mb-8 pb-3 border-b-2 border-indigo-200/80 flex items-center">
+                                <i data-lucide="code-2" class="w-6 h-6 mr-3 text-indigo-600"></i>
+                                Python Programming & Data Analysis
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">Python for Beginners</h4>
+                                    <p class="text-slate-600">Dicoding Academy</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">Using Python to Interact with the Operating System</h4>
+                                    <p class="text-slate-600">Google</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">Data Analysis with Python</h4>
+                                    <p class="text-slate-600">Dicoding Indonesia</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">Linear Algebra for ML & Data Science</h4>
+                                    <p class="text-slate-600">DeepLearning.AI</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Category 3: Machine Learning & AI Specialization -->
-                    <div class="fade-in-up">
-                        <h3 class="text-2xl font-semibold text-slate-800 mb-8 pb-3 border-b-2 border-indigo-200/80 flex items-center">
-                            <i data-lucide="brain-circuit" class="w-6 h-6 mr-3 text-indigo-600"></i>
-                            Machine Learning & AI Specialization
-                        </h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                            <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
-                                <h4 class="text-lg font-semibold text-indigo-700">Machine Learning Specialization</h4>
-                                <p class="text-slate-600">Stanford University</D>
-                            </div>
-                            <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
-                                <h4 class="text-lg font-semibold text-indigo-700">DeepLearning.AI TensorFlow Developer Specialization</h4>
-                                <p class="text-slate-600">DeepLearning.AI</p>
-                            </div>
-                            <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
-                                <h4 class="text-lg font-semibold text-indigo-700">Generative AI for Everyone</h4>
-                                <p class="text-slate-600">DeepLearning.AI</p>
-                            </div>
-                            <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
-                                <h4 class="text-lg font-semibold text-indigo-700">Applied Machine Learning</h4>
-                                <p class="text-slate-600">Dicoding Indonesia</p>
-                            </div>
-                            <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
-                                <h4 class="text-lg font-semibold text-indigo-700">Natural Language Processing in TensorFlow</h4>
-                                <p class="text-slate-600">DeepLearning.AI</p>
-                            </div>
-                            <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
-                                <h4 class="text-lg font-semibold text-indigo-700">Advanced Computer Vision with TensorFlow</h4>
-                                <p class="text-slate-600">DeepLearning.AI</p>
+                        <!-- Category 3: Machine Learning & AI Specialization -->
+                        <div class="fade-in-up">
+                            <h3 class="text-2xl font-semibold text-slate-800 mb-8 pb-3 border-b-2 border-indigo-200/80 flex items-center">
+                                <i data-lucide="brain-circuit" class="w-6 h-6 mr-3 text-indigo-600"></i>
+                                Machine Learning & AI Specialization
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">Machine Learning Specialization</h4>
+                                    <p class="text-slate-600">Stanford University</D>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">DeepLearning.AI TensorFlow Developer Specialization</h4>
+                                    <p class="text-slate-600">DeepLearning.AI</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">Generative AI for Everyone</h4>
+                                    <p class="text-slate-600">DeepLearning.AI</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">Applied Machine Learning</h4>
+                                    <p class="text-slate-600">Dicoding Indonesia</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">Natural Language Processing in TensorFlow</h4>
+                                    <p class="text-slate-600">DeepLearning.AI</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">Advanced Computer Vision with TensorFlow</h4>
+                                    <p class="text-slate-600">DeepLearning.AI</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- 5. Contact Section -->
+        <!-- Bagean niki tetep nggadahi latar gradient, mboten transparan -->
         <section id="contact" class="py-24 bg-gradient-to-r from-indigo-700 to-purple-800 text-white">
             <div class="container max-w-7xl mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6 fade-in-up">
@@ -455,6 +474,7 @@
     </main>
 
     <!-- Footer -->
+    <!-- Bagean niki tetep nggadahi latar peteng, mboten transparan -->
     <footer class="bg-slate-900 text-slate-400 py-12 relative z-10">
         <div class="container max-w-7xl mx-auto px-6 text-center">
             <p>&copy; 2025 Briyan Bayu Pangestu. All rights reserved.</p>
@@ -649,8 +669,10 @@
                             let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x))
                                 + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
                             
-                            if (distance < (particleCanvas.width / 7) * (particleCanvas.height / 7)) {
-                                opacityValue = 1 - (distance / 20000);
+                            // Jarak koneksi ingkang wajar
+                            let connectDistance = 150;
+                            if (distance < (connectDistance * connectDistance)) {
+                                opacityValue = 1 - (distance / (connectDistance * connectDistance)); // Kalkulasi opacity ingkang leres
                                 particleCtx.strokeStyle = 'rgba(167, 139, 250,' + opacityValue + ')'; // Werna violet-400 (kagem garis)
                                 particleCtx.lineWidth = 1;
                                 particleCtx.beginPath();
