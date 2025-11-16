@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Briyan Bayu Pangestu | IT & AI Professional</title>
+    <!-- Memuat Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Memuat Google Font (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Memuat Lucide Icons -->
+    <script src="https://unpkg.com/lucide-icons@0.390.0/dist/lucide.min.js"></script>
+    
+    <style>
+        /* Menerapkan font Inter sebagai default */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Menambahkan smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+    <!-- Header & Navigasi -->
+    <header class="sticky top-0 z-50 bg-white shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo Inisial -->
+            <a href="#home" class="text-3xl font-bold text-indigo-600">
+                BBP
+            </a>
+            <!-- Link Navigasi (Desktop) -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#home" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">Home</a>
+                <a href="#pengalaman" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">Pengalaman</a>
+                <a href="#sertifikasi" class="text-gray-600 hover:text-indigo-600 font-medium transition duration-300">Sertifikasi</a>
+                <a href="#kontak" class="bg-indigo-600 text-white px-5 py-2 rounded-lg font-medium hover:bg-indigo-700 shadow-sm transition duration-300">
+                    Kontak Saya
+                </a>
+            </div>
+            <!-- Tombol Navigasi (Mobile) - Disederhanakan untuk contoh ini -->
+            <div class="md:hidden">
+                <a href="#kontak" class="bg-indigo-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-indigo-700 shadow-sm transition duration-300">
+                    Kontak
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- 1. Hero Section -->
+        <section id="home" class="min-h-screen flex items-center bg-white">
+            <div class="container mx-auto px-6 py-20 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
+                    Briyan Bayu Pangestu
+                </h1>
+                <p class="text-xl md:text-3xl text-indigo-600 font-semibold mb-8">
+                    IT Officer | Network & Server Management | AI Enthusiast
+                </p>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
+                    Profesional IT yang dinamis berbasis di Jawa Timur, Indonesia, dengan keahlian ganda dalam mengelola infrastruktur jaringan & server yang tangguh serta mengembangkan solusi machine learning yang inovatif.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                    <a href="#sertifikasi" class="bg-indigo-600 text-white px-8 py-3 rounded-lg font-medium text-lg hover:bg-indigo-700 shadow-lg transition duration-300">
+                        Lihat Sertifikasi
+                    </a>
+                    <a href="#pengalaman" class="bg-gray-100 text-gray-800 px-8 py-3 rounded-lg font-medium text-lg hover:bg-gray-200 border border-gray-200 transition duration-300">
+                        Riwayat Karier
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Experience Section -->
+        <section id="pengalaman" class="py-24 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">
+                    Pengalaman Profesional
+                </h2>
+                
+                <!-- Timeline Container -->
+                <div class="relative max-w-3xl mx-auto">
+                    <!-- Timeline Line -->
+                    <div class="absolute left-0 sm:left-1/2 sm:-translate-x-1/2 h-full w-1 bg-indigo-200 rounded-full"></div>
+
+                    <!-- Timeline Items -->
+                    <div class="space-y-16">
+
+                        <!-- Item 1: Transon Bumindo Resources -->
+                        <div class="relative">
+                            <div class="absolute left-0 sm:left-1/2 sm:-translate-x-1/2 z-10 w-6 h-6 bg-indigo-600 rounded-full border-4 border-white mt-1"></div>
+                            <div class="sm:flex sm:items-center sm:space-x-8">
+                                <div class="sm:w-1/2 sm:text-right">
+                                    <p class="text-sm text-gray-500 mb-1">Jul 2022 - Agu 2025 (3 thn 2 bln)</p>
+                                    <h3 class="text-2xl font-semibold text-gray-900">IT Officer</h3>
+                                    <p class="text-lg text-gray-700">Transon Bumindo Resources</p>
+                                    <p class="text-sm text-gray-600">Morowali, Sulawesi Tengah, Indonesia</p>
+                                </div>
+                                <div class="sm:w-1/2"></div>
+                            </div>
+                        </div>
+
+                        <!-- Item 2: Coding Camp DBS -->
+                        <div class="relative">
+                            <div class="absolute left-0 sm:left-1/2 sm:-translate-x-1/2 z-10 w-6 h-6 bg-indigo-600 rounded-full border-4 border-white mt-1"></div>
+                            <div class="sm:flex sm:items-center sm:space-x-8">
+                                <div class="sm:w-1/2 sm:text-right sm:order-2">
+                                    <p class="text-sm text-gray-500 mb-1">Feb 2025 - Jul 2025 (6 bln)</p>
+                                    <h3 class="text-2xl font-semibold text-gray-900">Coding Camp - Machine Learning Engineer</h3>
+                                    <p class="text-lg text-gray-700">Coding Camp powered by DBS Foundation</p>
+                                </div>
+                                <div class="sm:w-1/2 sm:order-1 sm:text-right">
+                                    <p class="mt-2 text-gray-600">Menyelesaikan program pelatihan IT intensif dan sangat selektif yang berfokus pada Machine Learning.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Item 3: Bangkit -->
+                        <div class="relative">
+                            <div class="absolute left-0 sm:left-1/2 sm:-translate-x-1/2 z-10 w-6 h-6 bg-indigo-600 rounded-full border-4 border-white mt-1"></div>
+                            <div class="sm:flex sm:items-center sm:space-x-8">
+                                <div class="sm:w-1/2 sm:text-right">
+                                    <p class="text-sm text-gray-500 mb-1">Sep 2024 - Des 2024 (4 bln)</p>
+                                    <h3 class="text-2xl font-semibold text-gray-900">Machine Learning Cohort</h3>
+                                    <p class="text-lg text-gray-700">Bangkit (Google, Goto, Traveloka)</p>
+                                    <p class="text-sm text-gray-600">Indonesia</p>
+                                </div>
+                                <div class="sm:w-1/2"></div>
+                            </div>
+                        </div>
+
+                        <!-- Item 4: PT. TELKOM AKSES -->
+                        <div class="relative">
+                            <div class="absolute left-0 sm:left-1/2 sm:-translate-x-1/2 z-10 w-6 h-6 bg-indigo-600 rounded-full border-4 border-white mt-1"></div>
+                            <div class="sm:flex sm:items-center sm:space-x-8">
+                                <div class="sm:w-1/2 sm:text-right sm:order-2">
+                                    <p class="text-sm text-gray-500 mb-1">Sep 2021 - Feb 2022 (6 bln)</p>
+                                    <h3 class="text-2xl font-semibold text-gray-900">Technical Assistant Leader</h3>
+                                    <p class="text-lg text-gray-700">PT. TELKOM AKSES</p>
+                                    <p class="text-sm text-gray-600">Kota Malang, Jawa Timur, Indonesia</p>
+                                </div>
+                                <div class="sm:w-1/2 sm:order-1"></div>
+                            </div>
+                        </div>
+
+                        <!-- Item 5: Olimpiade Mikrotik -->
+                        <div class="relative">
+                            <div class="absolute left-0 sm:left-1/2 sm:-translate-x-1/2 z-10 w-6 h-6 bg-indigo-600 rounded-full border-4 border-white mt-1"></div>
+                            <div class="sm:flex sm:items-center sm:space-x-8">
+                                <div class="sm:w-1/2 sm:text-right">
+                                    <p class="text-sm text-gray-500 mb-1">Sep 2019 - Okt 2019 (2 bln)</p>
+                                    <h3 class="text-2xl font-semibold text-gray-900">Participant of Olimpiade Jaringan Mikrotik APJII 2019</h3>
+                                    <p class="text-lg text-gray-700">PT Citraweb Solusi Teknologi</p>
+                                </div>
+                                <div class="sm:w-1/2">
+                                     <p class="mt-2 text-gray-600">Salah satu perwakilan dari wilayah Jawa Timur untuk Olimpiade Jaringan Mikrotik APJII 2019.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Certifications Section -->
+        <section id="sertifikasi" class="py-24 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-6">
+                    Sertifikasi & Kualifikasi
+                </h2>
+                <p class="text-center text-lg text-gray-600 mb-16 max-w-2xl mx-auto">
+                    Komitmen terhadap pembelajaran berkelanjutan dan validasi keahlian di berbagai domain teknologi.
+                </p>
+
+                <!-- Kategori Sertifikasi -->
+                <div class="space-y-16">
+
+                    <!-- Kategori 1: Jaringan, Cloud & Infrastruktur -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-8 pb-3 border-b-2 border-indigo-200">
+                            Jaringan, Cloud & Infrastruktur
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- Card Sertifikasi -->
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Mikrotik Certified Network Associate</h4>
+                                <p class="text-gray-600">MikroTik</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">HCIA-AI</h4>
+                                <p class="text-gray-600">Huawei</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">CCNAv7</h4>
+                                <p class="text-gray-600">Cisco Networking Academy</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">CCNA: Introduction to Networks</h4>
+                                <p class="text-gray-600">Cisco</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Cloud Practitioner Essentials (Belajar Dasar AWS Cloud)</h4>
+                                <p class="text-gray-600">Dicoding Indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kategori 2: Python & Data -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-8 pb-3 border-b-2 border-indigo-200">
+                            Pemrograman Python & Analisis Data
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Memulai Pemrograman Dengan Python</h4>
+                                <p class="text-gray-600">Dicoding Academy</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Crash Course on Python</h4>
+                                <p class="text-gray-600">United Latino Students Association</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Using Python to Interact with the Operating System</h4>
+                                <p class="text-gray-600">Google</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Belajar Analisis Data dengan Python</h4>
+                                <p class="text-gray-600">Dicoding Indonesia</p>
+                            </div>
+                             <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Linear Algebra for Machine Learning and Data Science</h4>
+                                <p class="text-gray-600">DeepLearning.AI</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kategori 3: Machine Learning & AI -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-8 pb-3 border-b-2 border-indigo-200">
+                            Spesialisasi Machine Learning & AI
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            <!-- Dicoding -->
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Belajar Machine Learning Untuk Pemula</h4>
+                                <p class="text-gray-600">Dicoding Academy</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Machine Learning Terapan</h4>
+                                <p class="text-gray-600">Dicoding Indonesia</p>
+                            </div>
+                            <!-- Stanford / ULSA -->
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Supervised Machine Learning: Regression and Classification</h4>
+                                <p class="text-gray-600">United Latino Students Association</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Unsupervised Learning, Recommenders, Reinforcement Learning</h4>
+                                <p class="text-gray-600">Stanford University</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Advanced Learning Algorithms</h4>
+                                <p class="text-gray-600">Stanford University</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Machine Learning Specialization</h4>
+                                <p class="text-gray-600">Stanford University</D>
+                            </div>
+                            <!-- TensorFlow / DeepLearning.AI -->
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">DeepLearning.AI TensorFlow Developer Specialization</h4>
+                                <p class="text-gray-600">DeepLearning.AI</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Introduction to TensorFlow for AI, ML, and Deep Learning</h4>
+                                <p class="text-gray-600">DeepLearning.AI</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Convolutional Neural Networks in TensorFlow</h4>
+                                <p class="text-gray-600">DeepLearning.AI</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Natural Language Processing in TensorFlow</h4>
+                                <p class="text-gray-600">DeepLearning.AI</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Sequences, Time Series and Prediction</h4>
+                                <p class="text-gray-600">DeepLearning.AI</p>
+                            </div>
+                             <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Custom and Distributed Training with TensorFlow</h4>
+                                <p class="text-gray-600">DeepLearning.AI</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Advanced Computer Vision with TensorFlow</h4>
+                                <p class="text-gray-600">DeepLearning.AI</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Device-based Models with TensorFlow Lite</h4>
+                                <p class="text-gray-600">DeepLearning.AI</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Browser-based Models with TensorFlow.js</h4>
+                                <p class="text-gray-600">DeepLearning.AI</D>
+                            </div>
+                             <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Custom Models, Layers, and Loss Functions with TensorFlow</h4>
+                                <p class="text-gray-600">DeepLearning.AI</D>
+                            </div>
+                             <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Data Pipelines with TensorFlow Data Services</h4>
+                                <p class="text-gray-600">DeepLearning.AI</D>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Structuring Machine Learning Projects</h4>
+                                <p class="text-gray-600">DeepLearning.AI</p>
+                            </div>
+                            <!-- Generative AI -->
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Generative AI for Everyone</h4>
+                                <p class="text-gray-600">DeepLearning.AI</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100">
+                                <h4 class="text-lg font-semibold text-indigo-700">Build Basic Generative Adversarial Networks (GANs)</h4>
+                                <p class="text-gray-600">DeepLearning.AI</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Contact Section -->
+        <section id="kontak" class="py-24 bg-indigo-700 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                    Mari Terhubung
+                </h2>
+                <p class="text-lg text-indigo-200 mb-10 max-w-2xl mx-auto">
+                    Saya selalu terbuka untuk peluang baru, kolaborasi, atau sekadar berdiskusi tentang teknologi.
+                </p>
+                
+                <!-- Ikon Kontak -->
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-12">
+                    
+                    <!-- Email -->
+                    <a href="mailto:bryanazza836@gmail.com" class="flex items-center text-xl font-medium hover:text-indigo-100 transition duration-300">
+                        <i data-lucide="mail" class="w-7 h-7 mr-3"></i>
+                        <span>bryanazza836@gmail.com</span>
+                    </a>
+                    
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/briyan-bayu-pangestu-a290871a7" target="_blank" rel="noopener noreferrer" class="flex items-center text-xl font-medium hover:text-indigo-100 transition duration-300">
+                        <i data-lucide="linkedin" class="w-7 h-7 mr-3"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    
+                    <!-- Website -->
+                    <a href="httpsiat://briyanbayupangestu.me" target="_blank" rel="noopener noreferrer" class="flex items-center text-xl font-medium hover:text-indigo-100 transition duration-300">
+                        <i data-lucide="globe" class="w-7 h-7 mr-3"></i>
+                        <span>Portofolio (briyanbayupangestu.me)</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-gray-400 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Briyan Bayu Pangestu. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Script untuk mengaktifkan Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>
