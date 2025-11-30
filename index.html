@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Briyan Bayu Pangestu | IT & AI Professional</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Font (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide-icons@0.390.0/dist/lucide.min.js"></script>
+    
+    <style>
+        /* Set Inter as the default font */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Latar belakang sakniki transparan, amargi di-handle kalih canvas */
+            background-color: transparent; 
+            color: #0f172a; /* text-slate-900 */
+        }
+        
+        /* Enable smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* --- Animasi Keren --- */
+
+        /* 1. Animasi Fade-in-up (untuk scroll) */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 2. Animasi Hero Section (slide-in) */
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .animate-slide-in-left {
+            opacity: 0; /* Mulai transparan */
+            animation: slideInLeft 0.7s ease-out 0.2s forwards; /* 'forwards' menjaga state akhir */
+        }
+        .animate-slide-in-right {
+            opacity: 0; /* Mulai transparan */
+            animation: slideInRight 0.7s ease-out 0s forwards;
+        }
+
+        /* 3. Animasi Typewriter Cursor */
+        .type-cursor {
+            font-weight: 600;
+            color: #4f46e5; /* indigo-600 */
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        /* 4. Canvas untuk Animasi Matrix/CMD */
+        #matrix-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1; /* Di belakang foto */
+            border-radius: 50%; /* Sesuaikan dengan bentuk foto */
+            opacity: 0.6; /* Sedikit transparan agar tidak terlalu ramai */
+        }
+        
+        /* Kontainer foto */
+        .photo-container {
+            position: relative; /* Diperlukan untuk canvas 'absolute' */
+            z-index: 5;
+        }
+        
+        .photo-image {
+            position: relative; /* Di atas canvas */
+            z-index: 2;
+        }
+
+        /* 5. (BARU) Canvas Animasi Latar Belakang Penuh */
+        #particle-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -10; /* Wajib paling belakang */
+            background-color: #f8fafc; /* bg-slate-50 */
+        }
+
+        /* Custom shadow professional */
+        .professional-shadow {
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+        }
+        .professional-shadow-hover {
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.07), 0 4px 6px -4px rgb(0 0 0 / 0.07);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- (BARU) Canvas Latar Belakang Penuh -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Header & Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg shadow-sm border-b border-slate-200/50">
+        <nav class="container max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- Logo / Initials -->
+            <a href="#home" class="text-3xl font-bold text-indigo-600 hover:text-indigo-700 transition-colors">
+                BBP
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="text-slate-600 hover:text-indigo-600 font-medium transition-colors duration-300">Home</a>
+                <a href="#about" class="text-slate-600 hover:text-indigo-600 font-medium transition-colors duration-300">About</a>
+                <a href="#experience" class="text-slate-600 hover:text-indigo-600 font-medium transition-colors duration-300">Experience</a>
+                <a href="#certifications" class="text-slate-600 hover:text-indigo-600 font-medium transition-colors duration-300">Certifications</a>
+                <a href="#contact" class="bg-indigo-600 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-indigo-700 shadow-sm hover:shadow-lg hover:shadow-indigo-500/20 transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out">
+                    Contact
+                </a>
+            </div>
+            
+            <!-- Mobile Menu Button (Hamburger) -->
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-slate-700 hover:text-indigo-600 focus:outline-none">
+                    <i data-lucide="menu" class="w-7 h-7"></i>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg border-t border-slate-100">
+            <a href="#home" class="block px-6 py-3 text-slate-700 hover:bg-slate-50 font-medium">Home</a>
+            <a href="#about" class="block px-6 py-3 text-slate-700 hover:bg-slate-50 font-medium">About</a>
+            <a href="#experience" class="block px-6 py-3 text-slate-700 hover:bg-slate-50 font-medium">Experience</a>
+            <a href="#certifications" class="block px-6 py-3 text-slate-700 hover:bg-indigo-50 font-semibold">Contact</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <!-- Memberi 'position: relative' supados saged katingal ing inggilipun canvas partikel -->
+    <main class="relative z-10">
+
+        <!-- 
+          PERBAIKAN: 'bg-white' diilangi supados canvas partikel katingal.
+          Kagem nambal, kula tambahi 'bg-white' ing kontainer ingkang luwih alit.
+        -->
+        <section id="home" class="min-h-screen flex items-center pt-28 pb-16 overflow-x-hidden">
+            <div class="container max-w-7xl mx-auto px-6">
+                <!-- Dibungkus 'bg-white' supados katingal resik ing inggil partikel -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white/90 backdrop-blur-sm p-8 md:p-12 rounded-2xl professional-shadow">
+                    
+                    <!-- Kolom 1: Teks -->
+                    <div class="text-center md:text-left animate-slide-in-right">
+                        <span class="text-lg md:text-xl font-medium text-indigo-600">
+                            Hello, I'm
+                        </span>
+                        <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 mt-2 mb-4">
+                            Briyan Bayu Pangestu
+                        </h1>
+                        <p class="text-2xl md:text-3xl text-slate-800 font-semibold mb-6 h-16 md:h-10">
+                            I'm an <span id="typewriter" class="text-indigo-600 font-bold"></span><span class="type-cursor">|</span>
+                        </p>
+                        <p class="text-lg md:text-xl text-slate-600 max-w-xl mx-auto md:mx-0 mb-10">
+                            Combining hands-on network & server management with a growing expertise in machine learning to build practical, real-world solutions.
+                        </p>
+                        <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
+                            <a href="#contact" class="text-lg bg-indigo-600 text-white px-8 py-3.5 rounded-lg font-medium hover:bg-indigo-700 shadow-lg shadow-indigo-500/20 hover:shadow-xl hover:shadow-indigo-500/30 transform hover:-translate-y-1 transition-all duration-300">
+                                Get In Touch
+                            </a>
+                            <a href="#experience" class="text-lg bg-white text-slate-700 px-8 py-3.5 rounded-lg font-medium hover:bg-slate-100 border border-slate-200 shadow-sm hover:shadow-md transform hover:-translate-y-1 transition-all duration-300">
+                                Career History
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Kolom 2: Foto & Animasi CMD -->
+                    <div class="flex justify-center md:justify-end animate-slide-in-left">
+                        <!-- Kontainer untuk foto dan canvas -->
+                        <div class="p-2 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 shadow-2xl shadow-indigo-500/30 photo-container">
+                             
+                             <!-- Canvas untuk Animasi CMD (BARU) -->
+                             <canvas id="matrix-canvas"></canvas>
+                             
+                             <!-- FOTO ANDA (SUDAH DIPERBARUI) -->
+                             <img src="https://raw.githubusercontent.com/bryanbayup/bryanbayup.github.io/main/Photo_Briyan%20Bayu%20Pangestu.jpg" 
+                                  alt="Foto Briyan Bayu Pangestu" 
+                                  class="rounded-full w-64 h-64 md:w-96 md:h-96 object-cover border-4 border-white photo-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          PERBAIKAN: 'bg-slate-50' diilangi supados canvas partikel katingal.
+          Konten dibungkus 'bg-slate-50/90'.
+        -->
+        <section id="about" class="py-24">
+            <div class="container max-w-7xl mx-auto px-6">
+                <!-- Dibungkus 'bg-slate-50/90' supados katingal resik ing inggil partikel -->
+                <div class="max-w-3xl mx-auto text-center bg-slate-50/90 backdrop-blur-sm p-8 md:p-12 rounded-2xl professional-shadow">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6 fade-in-up">
+                        About Me
+                    </h2>
+                    <div class="space-y-5 text-lg text-slate-600 fade-in-up" style="transition-delay: 200ms;">
+                        <p>
+                            I’m an IT professional from East Java with hands-on experience in network and server management, and a growing focus on machine learning. 
+                        </p>
+                        <p>
+                            I started my career in the field supporting telecom operations, then moved into IT infrastructure where I handled day-to-day systems, networks, and technical operations for a mining company.
+                        </p>
+                        <p>
+                            Over time, I became more interested in AI and data. That pushed me to join programs like Bangkit and Coding Camp powered by DBS Foundation, where I worked on real ML projects and strengthened both my technical and soft skills. Now I combine what I know from infrastructure with what I’m learning in AI—building things that are practical and actually useful.
+                        </p>
+                        <p class="font-semibold text-slate-700">
+                            I enjoy learning, experimenting, and taking on projects that help me grow as both an engineer and a problem solver.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          PERBAIKAN: 'bg-white' diilangi.
+          Konten dibungkus 'bg-white/90'.
+        -->
+        <section id="experience" class="py-24">
+            <div class="container max-w-7xl mx-auto px-6">
+                <!-- Dibungkus 'bg-white/90' supados katingal resik ing inggil partikel -->
+                <div class="max-w-3xl mx-auto bg-white/90 backdrop-blur-sm p-8 md:p-12 rounded-2xl professional-shadow">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 fade-in-up">
+                        Professional Experience
+                    </h2>
+                    
+                    <!-- Single-sided Timeline Container -->
+                    <div class="relative max-w-2xl mx-auto">
+                        <!-- The vertical timeline line -->
+                        <div class="absolute left-3 top-2 h-full w-0.5 bg-indigo-200" aria-hidden="true"></div>
+
+                        <div class="space-y-12">
+
+                            <!-- Item 1: Transon Bumindo Resources -->
+                            <div class="relative pl-12 fade-in-up">
+                                <!-- Timeline Dot & Icon -->
+                                <div class="absolute left-0 top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 shadow-md">
+                                    <i data-lucide="briefcase" class="w-3.5 h-3.5 text-white"></i>
+                                </div>
+                                <!-- Content -->
+                                <p class="text-sm text-slate-500 mb-1">July 2022 - Aug 2025 (3 yrs 2 mos)</p>
+                                <h3 class="text-2xl font-semibold text-slate-900">IT Officer</h3>
+                                <p class="text-lg text-slate-700">Transon Bumindo Resources</p>
+                                <p class="text-sm text-slate-600 mb-2">Morowali, Central Sulawesi, Indonesia</p>
+                                <p class="text-slate-600">Handled day-to-day systems, networks, and technical operations for a mining company.</p>
+                            </div>
+
+                            <!-- Item 2: Coding Camp DBS -->
+                            <div class="relative pl-12 fade-in-up">
+                                <!-- Timeline Dot & Icon -->
+                                <div class="absolute left-0 top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 shadow-md">
+                                    <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-white"></i>
+                                </div>
+                                <!-- Content -->
+                                <p class="text-sm text-slate-500 mb-1">Feb 2025 - July 2025 (6 mos)</p>
+                                <h3 class="text-2xl font-semibold text-slate-900">Coding Camp - Machine Learning Engineer</h3>
+                                <p class="text-lg text-slate-700">Coding Camp powered by DBS Foundation</p>
+                                <p class="mt-2 text-slate-600">Completed an intensive, selective IT program focused on ML, finance, English, and soft skills.</p>
+                            </div>
+
+                            <!-- Item 3: Bangkit -->
+                            <div class="relative pl-12 fade-in-up">
+                                <!-- Timeline Dot & Icon -->
+                                <div class="absolute left-0 top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 shadow-md">
+                                    <i data-lucide="graduation-cap" class="w-3.5 h-3.5 text-white"></i>
+                                </div>
+                                <!-- Content -->
+                                <p class="text-sm text-slate-500 mb-1">Sep 2024 - Dec 2024 (4 mos)</p>
+                                <h3 class="text-2xl font-semibold text-slate-900">Machine Learning Cohort</h3>
+                                <p class="text-lg text-slate-700">Bangkit (Google, Goto, Traveloka)</p>
+                                <p class="mt-2 text-slate-600">Participated in an intensive program working on real-world ML projects and case studies.</p>
+                            </div>
+
+                            <!-- Item 4: PT. TELKOM AKSES -->
+                            <div class="relative pl-12 fade-in-up">
+                                <!-- Timeline Dot & Icon -->
+                                <div class="absolute left-0 top-1.5 flex h-6 w-6 items-center justify-center rounded-full bg-indigo-600 shadow-md">
+                                    <i data-lucide="briefcase" class="w-3.5 h-3.5 text-white"></i>
+                                </div>
+                                <!-- Content -->
+                                <p class="text-sm text-slate-500 mb-1">Sep 2021 - Feb 2022 (6 mos)</p>
+                                <h3 class="text-2xl font-semibold text-slate-900">Technical Assistant Leader</h3>
+                                <p class="text-lg text-slate-700">PT. TELKOM AKSES</p>
+                                <p class="text-sm text-slate-600 mb-2">Malang, East Java, Indonesia</p>
+                                <p class="text-slate-600">Supported telecom operations and field technical assistance.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+          PERBAIKAN: 'bg-slate-50' diilangi.
+          Konten dibungkus 'bg-slate-50/90'.
+        -->
+        <section id="certifications" class="py-24">
+            <div class="container max-w-7xl mx-auto px-6">
+                <!-- Dibungkus 'bg-slate-50/90' supados katingal resik ing inggil partikel -->
+                <div class="bg-slate-50/90 backdrop-blur-sm p-8 md:p-12 rounded-2xl professional-shadow">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 fade-in-up">
+                        Certifications & Skills
+                    </h2>
+                    <p class="text-center text-lg text-slate-600 mb-16 max-w-2xl mx-auto fade-in-up" style="transition-delay: 150ms;">
+                        A commitment to continuous learning and skill validation across key technology domains.
+                    </p>
+
+                    <!-- Certification Categories -->
+                    <div class="space-y-16">
+
+                        <!-- Category 1: Network, Cloud & Infrastructure -->
+                        <div class="fade-in-up">
+                            <h3 class="text-2xl font-semibold text-slate-800 mb-8 pb-3 border-b-2 border-indigo-200/80 flex items-center">
+                                <i data-lucide="network" class="w-6 h-6 mr-3 text-indigo-600"></i>
+                                Network, Cloud & Infrastructure
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <!-- Certification Card -->
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">Mikrotik Certified Network Associate</h4>
+                                    <p class="text-slate-600">MikroTik</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">HCIA-AI</h4>
+                                    <p class="text-slate-600">Huawei</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">CCNAv7</h4>
+                                    <p class="text-slate-600">Cisco Networking Academy</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">CCNA: Introduction to Networks</h4>
+                                    <p class="text-slate-600">Cisco</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">Cloud Practitioner Essentials (AWS)</h4>
+                                    <p class="text-slate-600">Dicoding Indonesia</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Category 2: Python & Data Analysis -->
+                        <div class="fade-in-up">
+                            <h3 class="text-2xl font-semibold text-slate-800 mb-8 pb-3 border-b-2 border-indigo-200/80 flex items-center">
+                                <i data-lucide="code-2" class="w-6 h-6 mr-3 text-indigo-600"></i>
+                                Python Programming & Data Analysis
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">Python for Beginners</h4>
+                                    <p class="text-slate-600">Dicoding Academy</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">Using Python to Interact with the Operating System</h4>
+                                    <p class="text-slate-600">Google</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">Data Analysis with Python</h4>
+                                    <p class="text-slate-600">Dicoding Indonesia</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">Linear Algebra for ML & Data Science</h4>
+                                    <p class="text-slate-600">DeepLearning.AI</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Category 3: Machine Learning & AI Specialization -->
+                        <div class="fade-in-up">
+                            <h3 class="text-2xl font-semibold text-slate-800 mb-8 pb-3 border-b-2 border-indigo-200/80 flex items-center">
+                                <i data-lucide="brain-circuit" class="w-6 h-6 mr-3 text-indigo-600"></i>
+                                Machine Learning & AI Specialization
+                            </h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">Machine Learning Specialization</h4>
+                                    <p class="text-slate-600">Stanford University</D>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">DeepLearning.AI TensorFlow Developer Specialization</h4>
+                                    <p class="text-slate-600">DeepLearning.AI</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">Generative AI for Everyone</h4>
+                                    <p class="text-slate-600">DeepLearning.AI</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">Applied Machine Learning</h4>
+                                    <p class="text-slate-600">Dicoding Indonesia</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">Natural Language Processing in TensorFlow</h4>
+                                    <p class="text-slate-600">DeepLearning.AI</p>
+                                </div>
+                                <div class="bg-white p-6 rounded-xl professional-shadow border border-slate-100 transform hover:-translate-y-2 hover:professional-shadow-hover transition-all duration-300">
+                                    <h4 class="text-lg font-semibold text-indigo-700">Advanced Computer Vision with TensorFlow</h4>
+                                    <p class="text-slate-600">DeepLearning.AI</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Contact Section -->
+        <!-- Bagean niki tetep nggadahi latar gradient, mboten transparan -->
+        <section id="contact" class="py-24 bg-gradient-to-r from-indigo-700 to-purple-800 text-white">
+            <div class="container max-w-7xl mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 fade-in-up">
+                    Get In Touch
+                </h2>
+                <p class="text-lg text-indigo-200 mb-10 max-w-2xl mx-auto fade-in-up" style="transition-delay: 150ms;">
+                    I'm always open to new opportunities, collaborations, or just a chat about technology.
+                </p>
+                
+                <!-- 
+                  PERBAIKAN ALIGNMENT (Alignment Fix):
+                  'items-center' supados rata tengah ing mobile (flex-col)
+                  'md:items-center' kagem desktop (md:flex-row)
+                -->
+                <div class="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-12 max-w-lg mx-auto md:max-w-none fade-in-up" style="transition-delay: 300ms;">
+                    
+                    <!-- Email -->
+                    <a href="mailto:bryanazza836@gmail.com" class="group flex items-center text-xl font-medium text-indigo-100 hover:text-white transition-all duration-300">
+                        <i data-lucide="mail" class="w-7 h-7 mr-3 text-indigo-300 group-hover:text-white transition-all"></i>
+                        <span>bryanazza836@gmail.com</span>
+                    </a>
+                    
+                    <!-- LinkedIn -->
+                    <a href="https://www.linkedin.com/in/briyan-bayu-pangestu-a290871a7" target="_blank" rel="noopener noreferrer" class="group flex items-center text-xl font-medium text-indigo-100 hover:text-white transition-all duration-300">
+                        <i data-lucide="linkedin" class="w-7 h-7 mr-3 text-indigo-300 group-hover:text-white transition-all"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    
+                    <!-- (BARU) Link GitHub Portfolio -->
+                    <a href="httpsS://github.com/bryanbayup" target="_blank" rel="noopener noreferrer" class="group flex items-center text-xl font-medium text-indigo-100 hover:text-white transition-all duration-300">
+                        <i data-lucide="github" class="w-7 h-7 mr-3 text-indigo-300 group-hover:text-white transition-all"></i>
+                        <span>Portfolio</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- Bagean niki tetep nggadahi latar peteng, mboten transparan -->
+    <footer class="bg-slate-900 text-slate-400 py-12 relative z-10">
+        <div class="container max-w-7xl mx-auto px-6 text-center">
+            <p>&copy; 2025 Briyan Bayu Pangestu. All rights reserved.</p>
+            <p class="text-sm mt-2">Built with <span class="text-indigo-400">Tailwind CSS</span> & <span class="text-indigo-400">Lucide Icons</span>.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Block -->
+    <script>
+        // Ngentosi sedaya (kalebu gambar) rampung di-load
+        window.onload = (event) => {
+            
+            // 1. Initialize Lucide Icons
+            try {
+                lucide.createIcons();
+            } catch (error) {
+                console.error("Error initializing Lucide icons:", error);
+            }
+
+            // 2. Mobile Menu Toggle
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (menuBtn && mobileMenu) { // Priksa menawi elemen wonten
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Close mobile menu when a link is clicked
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (mobileMenu) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            // 3. Intersection Observer for Scroll Animations
+            const animatedElements = document.querySelectorAll('.fade-in-up');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            });
+            animatedElements.forEach(el => {
+                observer.observe(el);
+            });
+
+            // 4. Typewriter Effect
+            const typewriterEl = document.getElementById('typewriter');
+            if (typewriterEl) {
+                const roles = [
+                    "IT Infrastructure Engineer",
+                    "AI & ML Enthusiast",
+                    "Network Specialist",
+                    "Problem Solver"
+                ];
+                let roleIndex = 0;
+                let charIndex = 0;
+                let isDeleting = false;
+
+                function type() {
+                    const currentRole = roles[roleIndex];
+                    let typeSpeed = 150;
+                    
+                    if (isDeleting) {
+                        typewriterEl.textContent = currentRole.substring(0, charIndex - 1);
+                        charIndex--;
+                        typeSpeed = 100;
+                        if (charIndex === 0) {
+                            isDeleting = false;
+                            roleIndex = (roleIndex + 1) % roles.length;
+                            typeSpeed = 500;
+                        }
+                    } else {
+                        typewriterEl.textContent = currentRole.substring(0, charIndex + 1);
+                        charIndex++;
+                        if (charIndex === currentRole.length) {
+                            isDeleting = true;
+                            typeSpeed = 2000;
+                        }
+                    }
+                    setTimeout(type, typeSpeed);
+                }
+                setTimeout(type, 500);
+            }
+            
+            // 5. Animasi CMD/Matrix Canvas (Warna Abrit/Merah)
+            const matrixCanvas = document.getElementById('matrix-canvas');
+            if (matrixCanvas) {
+                const matrixCtx = matrixCanvas.getContext('2d');
+                const matrixContainer = matrixCanvas.parentElement;
+                
+                if (matrixContainer && matrixContainer.clientWidth > 0) {
+                    matrixCanvas.width = matrixContainer.clientWidth;
+                    matrixCanvas.height = matrixContainer.clientHeight;
+
+                    let matrixChars = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポヴッン10'.split('');
+                    let matrixFontSize = 10;
+                    let matrixColumns = Math.floor(matrixCanvas.width / matrixFontSize);
+                    let matrixDrops = [];
+                    for(let x = 0; x < matrixColumns; x++) {
+                        matrixDrops[x] = 1;
+                    }
+
+                    function drawMatrix() {
+                        matrixCtx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                        matrixCtx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+                        
+                        // (PERUBAHAN) Werna digantos dados ABRIT (Merah)
+                        matrixCtx.fillStyle = '#dc2626'; // Tailwind Red-600
+                        matrixCtx.font = matrixFontSize + 'px arial';
+
+                        for(let i = 0; i < matrixDrops.length; i++) {
+                            let text = matrixChars[Math.floor(Math.random() * matrixChars.length)];
+                            matrixCtx.fillText(text, i * matrixFontSize, matrixDrops[i] * matrixFontSize);
+                            
+                            if(matrixDrops[i] * matrixFontSize > matrixCanvas.height && Math.random() > 0.975) {
+                                matrixDrops[i] = 0;
+                            }
+                            matrixDrops[i]++;
+                        }
+                    }
+                    setInterval(drawMatrix, 40);
+                }
+            }
+
+            // 6. (BARU) Animasi Latar Belakang Penuh (Particle Network)
+            const particleCanvas = document.getElementById('particle-canvas');
+            if (particleCanvas) {
+                const particleCtx = particleCanvas.getContext('2d');
+                particleCanvas.width = window.innerWidth;
+                particleCanvas.height = window.innerHeight;
+
+                let particlesArray;
+
+                // Objek partikel
+                class Particle {
+                    constructor(x, y, directionX, directionY, size, color) {
+                        this.x = x;
+                        this.y = y;
+                        this.directionX = directionX;
+                        this.directionY = directionY;
+                        this.size = size;
+                        this.color = color;
+                    }
+                    draw() {
+                        particleCtx.beginPath();
+                        particleCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                        particleCtx.fillStyle = this.color;
+                        particleCtx.fill();
+                    }
+                    update() {
+                        if (this.x > particleCanvas.width || this.x < 0) {
+                            this.directionX = -this.directionX;
+                        }
+                        if (this.y > particleCanvas.height || this.y < 0) {
+                            this.directionY = -this.directionY;
+                        }
+                        this.x += this.directionX;
+                        this.y += this.directionY;
+                        this.draw();
+                    }
+                }
+
+                // Nggawe partikel
+                function initParticles() {
+                    particlesArray = [];
+                    let numberOfParticles = (particleCanvas.height * particleCanvas.width) / 9000;
+                    for (let i = 0; i < numberOfParticles; i++) {
+                        let size = (Math.random() * 2) + 1;
+                        let x = (Math.random() * ((window.innerWidth - size * 2) - (size * 2)) + size * 2);
+                        let y = (Math.random() * ((window.innerHeight - size * 2) - (size * 2)) + size * 2);
+                        let directionX = (Math.random() * 0.4) - 0.2;
+                        let directionY = (Math.random() * 0.4) - 0.2;
+                        let color = '#a78bfa'; // Werna violet-400 (kagem partikel)
+
+                        particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+                    }
+                }
+
+                // Nggawe garis antar partikel
+                function connectParticles() {
+                    let opacityValue = 1;
+                    for (let a = 0; a < particlesArray.length; a++) {
+                        for (let b = a; b < particlesArray.length; b++) {
+                            let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x))
+                                + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+                            
+                            // Jarak koneksi ingkang wajar
+                            let connectDistance = 150;
+                            if (distance < (connectDistance * connectDistance)) {
+                                opacityValue = 1 - (distance / (connectDistance * connectDistance)); // Kalkulasi opacity ingkang leres
+                                particleCtx.strokeStyle = 'rgba(167, 139, 250,' + opacityValue + ')'; // Werna violet-400 (kagem garis)
+                                particleCtx.lineWidth = 1;
+                                particleCtx.beginPath();
+                                particleCtx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                                particleCtx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                                particleCtx.stroke();
+                            }
+                        }
+                    }
+                }
+
+                // Loop animasi
+                function animateParticles() {
+                    requestAnimationFrame(animateParticles);
+                    particleCtx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+                    for (let i = 0; i < particlesArray.length; i++) {
+                        particlesArray[i].update();
+                    }
+                    connectParticles();
+                }
+
+                // Event listener kagem resize
+                window.addEventListener('resize', () => {
+                    particleCanvas.width = window.innerWidth;
+                    particleCanvas.height = window.innerHeight;
+                    initParticles(); // Reset partikel pas ukuran diubah
+                });
+
+                initParticles();
+                animateParticles();
+            }
+
+        };
+    </script>
+
+</body>
+</html>
