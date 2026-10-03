@@ -1,293 +1,641 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Briyan Bayu Pangestu | IT & AI Professional</title>
-<meta name="description" content="IT professional with hands-on network and server management experience and a growing focus on machine learning.">
-<meta name="theme-color" content="#4f46e5">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Briyan Bayu Pangestu | IT & AI Professional">
-<meta property="og:description" content="Network and server management, with a growing focus on machine learning.">
-<meta property="og:image" content="https://bryanbayup.github.io/IMG_20261003_205040_874.jpg">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E💻%3C/text%3E%3C/svg%3E">
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/lucide@0.390.0/dist/umd/lucide.min.js"></script>
-<style>
-body{font-family:'Inter',sans-serif;background:transparent;color:#0f172a}
-html{scroll-behavior:smooth;scroll-padding-top:5rem}
-:focus-visible{outline:2px solid #4f46e5;outline-offset:3px;border-radius:4px}
-#contact :focus-visible{outline-color:#fff}
-.fade-in-up{opacity:0;transform:translateY(30px);transition:opacity .6s ease-out,transform .6s ease-out}
-.fade-in-up.is-visible{opacity:1;transform:none}
-@keyframes slideInLeft{from{opacity:0;transform:translateX(-100px)}to{opacity:1;transform:none}}
-@keyframes slideInRight{from{opacity:0;transform:translateX(100px)}to{opacity:1;transform:none}}
-.slide-l{opacity:0;animation:slideInLeft .7s ease-out .2s forwards}
-.slide-r{opacity:0;animation:slideInRight .7s ease-out forwards}
-.type-cursor{font-weight:600;color:#4f46e5;animation:blink .7s infinite}
-@keyframes blink{50%{opacity:0}}
-#particle-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:-10;background:#f8fafc}
-.photo-container{position:relative;z-index:5}
-#matrix-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;border-radius:50%;opacity:.6}
-.photo-image{position:relative;z-index:2}
-.panel{padding:2rem;border-radius:1rem;box-shadow:0 4px 6px -1px rgb(0 0 0/.05),0 2px 4px -2px rgb(0 0 0/.05)}
-@media(min-width:768px){.panel{padding:3rem}}
-.btn{display:inline-block;border-radius:.5rem;font-weight:500;transition:all .3s}
-.btn:hover{transform:translateY(-2px)}
-.pri{background:#4f46e5;color:#fff;box-shadow:0 10px 15px -3px rgb(79 70 229/.2)}
-.pri:hover{background:#4338ca}
-.sec{background:#fff;color:#334155;border:1px solid #e2e8f0}
-.sec:hover{background:#f1f5f9}
-.nlink{color:#475569;font-weight:500;transition:color .3s}
-.nlink:hover{color:#4f46e5}
-.mlink{display:block;padding:.75rem 1.5rem;color:#334155;font-weight:500}
-.mlink:hover{background:#f8fafc}
-.dot{position:absolute;left:0;top:.375rem;display:flex;align-items:center;justify-content:center;width:1.5rem;height:1.5rem;border-radius:9999px;background:#4f46e5;box-shadow:0 4px 6px -1px rgb(0 0 0/.1)}
-.dot svg{width:.875rem;height:.875rem;color:#fff}
-.cat{display:flex;align-items:center;margin-bottom:2rem;padding-bottom:.75rem;border-bottom:2px solid rgb(199 210 254/.8);font-size:1.5rem;font-weight:600;color:#1e293b}
-.cat svg{width:1.5rem;height:1.5rem;margin-right:.75rem;color:#4f46e5}
-.cert{background:#fff;padding:1.5rem;border-radius:.75rem;border:1px solid #f1f5f9;box-shadow:0 4px 6px -1px rgb(0 0 0/.05);transition:transform .3s,box-shadow .3s}
-.cert:hover{transform:translateY(-8px);box-shadow:0 12px 24px -6px rgb(79 70 229/.2)}
-.cert h4{font-size:1.125rem;font-weight:600;color:#4338ca}
-.cert p{color:#475569}
-.clink{display:flex;align-items:center;font-size:1.25rem;font-weight:500;color:#e0e7ff;transition:color .3s}
-.clink:hover{color:#fff}
-.clink svg{width:1.75rem;height:1.75rem;margin-right:.75rem;color:#a5b4fc}
-.clink:hover svg{color:#fff}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fade-in-up,.slide-l,.slide-r{opacity:1;transform:none;animation:none;transition:none}.type-cursor{animation:none}.cert:hover,.btn:hover{transform:none}}
-</style>
-<noscript><style>.fade-in-up,.slide-l,.slide-r{opacity:1;transform:none;animation:none}</style></noscript>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Briyan Bayu Pangestu — Informatics student, IT Infrastructure professional, and Machine Learning enthusiast.">
+  <meta name="theme-color" content="#0b0f19">
+  <meta property="og:title" content="Briyan Bayu Pangestu — IT & AI Portfolio">
+  <meta property="og:description" content="A personal portfolio covering IT infrastructure, machine learning, education, projects, and continuous learning.">
+  <meta property="og:image" content="https://bryanbayup.github.io/IMG_20261003_205040_874.jpg">
+  <title>Briyan Bayu Pangestu — IT & AI Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #080b12;
+      --bg-soft: #0d111b;
+      --panel: rgba(17, 23, 36, .78);
+      --panel-solid: #111724;
+      --text: #f5f7fb;
+      --muted: #9aa6b8;
+      --line: rgba(255,255,255,.09);
+      --accent: #8b7cff;
+      --accent-2: #62d5ff;
+      --warm: #f3b96b;
+      --max: 1180px;
+      --radius: 24px;
+      --shadow: 0 24px 80px rgba(0,0,0,.28);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(139,124,255,.13), transparent 30rem),
+        radial-gradient(circle at 90% 20%, rgba(98,213,255,.09), transparent 28rem),
+        var(--bg);
+      font-family: "DM Sans", system-ui, sans-serif;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    button { font: inherit; }
+    ::selection { background: rgba(139,124,255,.35); }
+
+    .skip {
+      position: fixed; left: 1rem; top: -5rem; z-index: 100;
+      padding: .7rem 1rem; border-radius: 10px; background: white; color: #111;
+    }
+    .skip:focus { top: 1rem; }
+
+    .container { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    .section { padding: 110px 0; position: relative; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: .55rem;
+      color: #bdb6ff; font-size: .78rem; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 24px; height: 1px; background: var(--accent); }
+    h1,h2,h3 { font-family: "Space Grotesk", sans-serif; line-height: 1.12; margin: 0; }
+    h2 { font-size: clamp(2rem, 5vw, 3.5rem); letter-spacing: -.04em; }
+    .section-head { max-width: 720px; margin-bottom: 48px; }
+    .section-head h2 { margin-top: 13px; }
+    .section-head p { color: var(--muted); margin: 18px 0 0; font-size: 1.03rem; }
+
+    /* Header */
+    header {
+      position: fixed; inset: 0 0 auto; z-index: 50;
+      background: rgba(8,11,18,.72); border-bottom: 1px solid transparent;
+      backdrop-filter: blur(18px);
+      transition: .25s ease;
+    }
+    header.scrolled { border-color: var(--line); background: rgba(8,11,18,.9); }
+    nav {
+      width: min(calc(100% - 40px), var(--max)); margin: auto;
+      height: 76px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand { font-family: "Space Grotesk"; font-weight: 700; font-size: 1.25rem; }
+    .brand span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { color: #b5bfce; font-size: .92rem; transition: .2s; }
+    .nav-links a:hover { color: white; }
+    .nav-cta {
+      padding: 10px 16px; border: 1px solid var(--line); border-radius: 999px;
+      color: white !important; background: rgba(255,255,255,.04);
+    }
+    .menu {
+      display: none; border: 1px solid var(--line); color: white; background: transparent;
+      width: 42px; height: 42px; border-radius: 12px; cursor: pointer;
+    }
+    .mobile-menu { display: none; padding: 0 20px 18px; }
+    .mobile-menu a { display: block; padding: 10px 0; color: #c4ccda; }
+
+    /* Hero */
+    .hero { min-height: 100svh; display: grid; place-items: center; padding-top: 76px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 70px; align-items: center; }
+    .hero-copy h1 {
+      margin-top: 18px; max-width: 780px;
+      font-size: clamp(3.1rem, 8vw, 6.7rem); letter-spacing: -.065em;
+    }
+    .hero-copy h1 em { color: var(--accent); font-style: normal; }
+    .hero-lead { max-width: 680px; margin: 26px 0 0; color: #b4bece; font-size: clamp(1.05rem, 2vw, 1.25rem); }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 9px; border-radius: 12px;
+      padding: 13px 18px; font-weight: 700; font-size: .92rem;
+      border: 1px solid var(--line); transition: transform .2s, border-color .2s, background .2s;
+    }
+    .btn:hover { transform: translateY(-2px); border-color: rgba(139,124,255,.55); }
+    .btn-primary { background: var(--accent); color: #0b0d14; border-color: transparent; }
+    .btn-secondary { background: rgba(255,255,255,.035); }
+    .availability { margin-top: 22px; color: #8490a4; font-size: .88rem; }
+    .availability b { color: #c9d0db; }
+
+    .portrait-wrap { position: relative; width: min(430px, 80vw); justify-self: end; }
+    .portrait-wrap::before {
+      content: ""; position: absolute; inset: 10% -8% -8% 10%;
+      border: 1px solid rgba(139,124,255,.34); border-radius: 38px; transform: rotate(6deg);
+    }
+    .portrait-card {
+      position: relative; overflow: hidden; border-radius: 34px; border: 1px solid var(--line);
+      background: #111827; box-shadow: var(--shadow);
+    }
+    .portrait-card img { width: 100%; aspect-ratio: 1 / 1.12; object-fit: cover; object-position: top center; }
+    .portrait-caption {
+      position: absolute; left: 18px; right: 18px; bottom: 18px;
+      padding: 15px 17px; border: 1px solid rgba(255,255,255,.1);
+      border-radius: 16px; background: rgba(7,10,17,.72); backdrop-filter: blur(12px);
+    }
+    .portrait-caption strong { display: block; font-family: "Space Grotesk"; }
+    .portrait-caption span { color: #aab4c3; font-size: .83rem; }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 60px; }
+    .about-note {
+      padding: 28px; border: 1px solid var(--line); border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(139,124,255,.08), rgba(255,255,255,.02));
+    }
+    .about-note p { color: #b4bece; margin: 0; }
+    .about-text { color: #aab5c5; font-size: 1.05rem; }
+    .about-text p { margin: 0 0 18px; }
+    .about-text strong { color: #eef1f7; }
+
+    /* Timeline */
+    .timeline { position: relative; max-width: 920px; margin: auto; }
+    .timeline::before {
+      content: ""; position: absolute; left: 17px; top: 8px; bottom: 8px; width: 1px;
+      background: linear-gradient(var(--accent), rgba(139,124,255,.05));
+    }
+    .timeline-item { position: relative; padding-left: 62px; margin-bottom: 46px; }
+    .timeline-dot {
+      position: absolute; left: 7px; top: 4px; width: 21px; height: 21px;
+      display: grid; place-items: center; border-radius: 50%; background: var(--bg);
+      border: 1px solid var(--accent);
+      box-shadow: 0 0 0 6px rgba(139,124,255,.07);
+    }
+    .timeline-dot::after { content: ""; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
+    .meta { color: #7f8a9e; font-size: .84rem; margin-bottom: 8px; }
+    .timeline h3 { font-size: 1.35rem; }
+    .timeline .org { color: #d8deea; margin-top: 5px; font-weight: 600; }
+    .timeline .place { color: #737f93; font-size: .88rem; }
+    .timeline p { color: #9da9ba; margin: 10px 0 0; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
+    .tag {
+      padding: 5px 9px; border: 1px solid var(--line); border-radius: 999px;
+      color: #aeb8c8; font-size: .76rem; background: rgba(255,255,255,.025);
+    }
+
+    /* Education */
+    .education {
+      background: linear-gradient(180deg, transparent, rgba(139,124,255,.035), transparent);
+    }
+    .education-intro { max-width: 680px; color: #9da8b9; }
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 40px; }
+    .edu-card {
+      min-height: 250px; padding: 30px; border: 1px solid var(--line); border-radius: 22px;
+      background: rgba(255,255,255,.025); transition: .25s;
+    }
+    .edu-card:hover { transform: translateY(-4px); border-color: rgba(139,124,255,.4); background: rgba(139,124,255,.055); }
+    .edu-card.featured { grid-row: span 2; background: linear-gradient(160deg, rgba(139,124,255,.13), rgba(255,255,255,.025)); }
+    .edu-year { color: var(--accent); font-size: .82rem; font-weight: 700; letter-spacing: .08em; }
+    .edu-icon {
+      width: 44px; height: 44px; margin: 24px 0 20px; display: grid; place-items: center;
+      border-radius: 13px; background: rgba(139,124,255,.11); color: #bdb6ff;
+    }
+    .edu-card h3 { font-size: 1.45rem; }
+    .edu-card p { color: #98a4b5; margin: 12px 0 0; }
+    .edu-card .school { color: #d9dfe9; font-weight: 600; margin-top: 5px; }
+
+    /* Projects */
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .project {
+      padding: 28px; border: 1px solid var(--line); border-radius: 22px;
+      background: rgba(255,255,255,.025); min-height: 285px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+    .project:hover { border-color: rgba(98,213,255,.35); }
+    .project-top { display: flex; justify-content: space-between; gap: 15px; }
+    .project-number { color: #6d7890; font-family: "Space Grotesk"; }
+    .project h3 { font-size: 1.45rem; margin-top: 28px; }
+    .project p { color: #99a5b6; margin: 12px 0 0; }
+    .project .result { color: #cfd6e2; font-size: .9rem; margin-top: 18px; }
+
+    /* Skills */
+    .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .skill-box { padding: 28px; border: 1px solid var(--line); border-radius: 22px; background: rgba(255,255,255,.025); }
+    .skill-box h3 { font-size: 1.2rem; margin-bottom: 18px; }
+    .skill-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-list span {
+      padding: 8px 11px; border-radius: 10px; background: #111927;
+      border: 1px solid var(--line); color: #aeb9c9; font-size: .84rem;
+    }
+
+    /* Certifications */
+    .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .cert {
+      padding: 20px; border: 1px solid var(--line); border-radius: 17px; background: rgba(255,255,255,.02);
+    }
+    .cert strong { display: block; color: #e6eaf1; font-size: .94rem; }
+    .cert span { color: #7f8a9e; font-size: .8rem; }
+
+    /* Contact */
+    .contact-box {
+      padding: 58px; border-radius: 30px; border: 1px solid rgba(139,124,255,.25);
+      background:
+        radial-gradient(circle at 85% 20%, rgba(98,213,255,.11), transparent 22rem),
+        linear-gradient(135deg, rgba(139,124,255,.13), rgba(255,255,255,.025));
+      text-align: center;
+    }
+    .contact-box h2 { max-width: 700px; margin: 0 auto; }
+    .contact-box p { max-width: 620px; margin: 18px auto 28px; color: #a5b0c0; }
+    .contact-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; }
+    .contact-links a { border: 1px solid var(--line); padding: 11px 15px; border-radius: 12px; color: #d5dbe5; }
+    .contact-links a:hover { border-color: rgba(139,124,255,.55); }
+
+    footer { border-top: 1px solid var(--line); padding: 28px 0 40px; color: #687489; font-size: .82rem; }
+    footer .footer-row { display: flex; justify-content: space-between; gap: 20px; }
+
+    .reveal { opacity: 0; transform: translateY(22px); transition: .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 850px) {
+      .nav-links { display: none; }
+      .menu { display: grid; place-items: center; }
+      .mobile-menu.open { display: block; }
+      .hero-grid, .about-grid, .edu-grid, .skills-layout { grid-template-columns: 1fr; }
+      .hero { padding-top: 115px; }
+      .portrait-wrap { justify-self: center; width: min(360px, 84vw); order: -1; }
+      .hero-copy { text-align: center; }
+      .hero-actions { justify-content: center; }
+      .availability { text-align: center; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .cert-grid { grid-template-columns: 1fr 1fr; }
+      .edu-card.featured { grid-row: auto; }
+    }
+    @media (max-width: 560px) {
+      .container { width: min(calc(100% - 28px), var(--max)); }
+      .section { padding: 82px 0; }
+      .hero-copy h1 { font-size: clamp(2.8rem, 16vw, 4.4rem); }
+      .cert-grid { grid-template-columns: 1fr; }
+      .contact-box { padding: 35px 20px; }
+      footer .footer-row { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
 </head>
-<body class="antialiased">
-<canvas id="particle-canvas" aria-hidden="true"></canvas>
 
-<header class="fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur-lg shadow-sm border-b border-slate-200/50">
-  <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center" aria-label="Main">
-    <a href="#home" class="text-3xl font-bold text-indigo-600 hover:text-indigo-700 transition-colors">BBP</a>
-    <div class="hidden md:flex items-center space-x-8">
-      <a href="#home" class="nlink">Home</a>
-      <a href="#about" class="nlink">About</a>
-      <a href="#experience" class="nlink">Experience</a>
-      <a href="#certifications" class="nlink">Certifications</a>
-      <a href="#contact" class="btn pri px-5 py-2.5">Contact</a>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header id="site-header">
+    <nav aria-label="Primary navigation">
+      <a class="brand" href="#home">Briyan<span>.</span></a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact" class="nav-cta">Let's talk</a>
+      </div>
+
+      <button class="menu" id="menu-button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation">
+        <i data-lucide="menu"></i>
+      </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Let's talk</a>
     </div>
-    <button id="menu-btn" class="md:hidden text-slate-700 hover:text-indigo-600" aria-label="Toggle menu" aria-controls="mobile-menu" aria-expanded="false">
-      <i data-lucide="menu" class="w-7 h-7"></i>
-    </button>
-  </nav>
-  <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg border-t border-slate-100">
-    <a href="#home" class="mlink">Home</a>
-    <a href="#about" class="mlink">About</a>
-    <a href="#experience" class="mlink">Experience</a>
-    <a href="#certifications" class="mlink">Certifications</a>
-    <a href="#contact" class="mlink !text-indigo-600 !font-semibold">Contact</a>
-  </div>
-</header>
+  </header>
 
-<main class="relative z-10">
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">IT Infrastructure · AI · Machine Learning</span>
+          <h1>Building with <em>systems</em>, learning with curiosity.</h1>
+          <p class="hero-lead">
+            I'm Briyan Bayu Pangestu. I started in network and infrastructure work, then gradually moved deeper into machine learning and AI. I enjoy understanding how things work—and turning that understanding into something useful.
+          </p>
 
-<section id="home" class="min-h-screen flex items-center pt-28 pb-16 overflow-x-hidden">
-  <div class="w-full max-w-7xl mx-auto px-6">
-    <div class="panel bg-white/90 backdrop-blur-sm grid md:grid-cols-2 gap-12 items-center">
-      <div class="text-center md:text-left slide-r">
-        <span class="text-lg md:text-xl font-medium text-indigo-600">Hello, I'm</span>
-        <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 mt-2 mb-4">Briyan Bayu Pangestu</h1>
-        <p class="text-2xl md:text-3xl text-slate-800 font-semibold mb-6 min-h-[4.5rem]">I'm <span id="typewriter" class="text-indigo-600 font-bold"></span><span class="type-cursor" aria-hidden="true">|</span></p>
-        <p class="text-lg md:text-xl text-slate-600 max-w-xl mx-auto md:mx-0 mb-10">Combining hands-on network &amp; server management with a growing expertise in machine learning to build practical, real-world solutions.</p>
-        <div class="flex flex-col sm:flex-row justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-6">
-          <a href="#contact" class="btn pri text-lg px-8 py-3.5">Get In Touch</a>
-          <a href="#experience" class="btn sec text-lg px-8 py-3.5">Career History</a>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects"><i data-lucide="arrow-down-right"></i>Explore my work</a>
+            <a class="btn btn-secondary" href="mailto:bryanazza836@gmail.com"><i data-lucide="mail"></i>Get in touch</a>
+          </div>
+
+          <div class="availability"><b>Based in Malang, East Java</b> · Open to hybrid or remote opportunities</div>
         </div>
-      </div>
-      <div class="flex justify-center md:justify-end slide-l">
-        <div class="photo-container p-2 rounded-full bg-gradient-to-br from-indigo-500 to-purple-600 shadow-2xl shadow-indigo-500/30">
-          <canvas id="matrix-canvas" aria-hidden="true"></canvas>
-          <img src="IMG_20261003_205040_874.jpg" alt="Portrait of Briyan Bayu Pangestu" width="384" height="384" fetchpriority="high" decoding="async" class="photo-image rounded-full w-64 h-64 md:w-96 md:h-96 object-cover object-top border-4 border-white">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section id="about" class="py-24">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="panel bg-slate-50/90 backdrop-blur-sm max-w-3xl mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-6 fade-in-up">About Me</h2>
-      <div class="space-y-5 text-lg text-slate-600 fade-in-up" style="transition-delay:200ms">
-        <p>I’m an IT professional from East Java with hands-on experience in network and server management, and a growing focus on machine learning.</p>
-        <p>I started my career in the field supporting telecom operations, then moved into IT infrastructure where I handled day-to-day systems, networks, and technical operations for a mining company.</p>
-        <p>Over time, I became more interested in AI and data. That pushed me to join programs like Bangkit and Coding Camp powered by DBS Foundation, where I worked on real ML projects and strengthened both my technical and soft skills. Now I combine what I know from infrastructure with what I’m learning in AI—building things that are practical and actually useful.</p>
-        <p class="font-semibold text-slate-700">I enjoy learning, experimenting, and taking on projects that help me grow as both an engineer and a problem solver.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="experience" class="py-24">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="panel bg-white/90 backdrop-blur-sm max-w-3xl mx-auto">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 fade-in-up">Professional Experience</h2>
-      <div class="relative max-w-2xl mx-auto">
-        <div class="absolute left-[11px] top-2 bottom-2 w-0.5 bg-indigo-200" aria-hidden="true"></div>
-        <div class="space-y-12">
-          <div class="relative pl-12 fade-in-up">
-            <span class="dot"><i data-lucide="briefcase"></i></span>
-            <p class="text-sm text-slate-500 mb-1">July 2022 - Aug 2025 (3 yrs 2 mos)</p>
-            <h3 class="text-2xl font-semibold text-slate-900">IT Officer</h3>
-            <p class="text-lg text-slate-700">Transon Bumindo Resources</p>
-            <p class="text-sm text-slate-600 mb-2">Morowali, Central Sulawesi, Indonesia</p>
-            <p class="text-slate-600">Handled day-to-day systems, networks, and technical operations for a mining company.</p>
-          </div>
-          <div class="relative pl-12 fade-in-up">
-            <span class="dot"><i data-lucide="graduation-cap"></i></span>
-            <p class="text-sm text-slate-500 mb-1">Feb 2025 - July 2025 (6 mos)</p>
-            <h3 class="text-2xl font-semibold text-slate-900">Coding Camp - Machine Learning Engineer</h3>
-            <p class="text-lg text-slate-700">Coding Camp powered by DBS Foundation</p>
-            <p class="mt-2 text-slate-600">Completed an intensive, selective IT program focused on ML, finance, English, and soft skills.</p>
-          </div>
-          <div class="relative pl-12 fade-in-up">
-            <span class="dot"><i data-lucide="graduation-cap"></i></span>
-            <p class="text-sm text-slate-500 mb-1">Sep 2024 - Dec 2024 (4 mos)</p>
-            <h3 class="text-2xl font-semibold text-slate-900">Machine Learning Cohort</h3>
-            <p class="text-lg text-slate-700">Bangkit (Google, Goto, Traveloka)</p>
-            <p class="mt-2 text-slate-600">Participated in an intensive program working on real-world ML projects and case studies.</p>
-          </div>
-          <div class="relative pl-12 fade-in-up">
-            <span class="dot"><i data-lucide="briefcase"></i></span>
-            <p class="text-sm text-slate-500 mb-1">Sep 2021 - Feb 2022 (6 mos)</p>
-            <h3 class="text-2xl font-semibold text-slate-900">Technical Assistant Leader</h3>
-            <p class="text-lg text-slate-700">PT. TELKOM AKSES</p>
-            <p class="text-sm text-slate-600 mb-2">Malang, East Java, Indonesia</p>
-            <p class="text-slate-600">Supported telecom operations and field technical assistance.</p>
+        <div class="portrait-wrap reveal">
+          <div class="portrait-card">
+            <img src="IMG_20261003_205040_874.jpg" alt="Portrait of Briyan Bayu Pangestu" width="430" height="480">
+            <div class="portrait-caption">
+              <strong>Briyan Bayu Pangestu</strong>
+              <span>Informatics · IT Infrastructure · Machine Learning</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<section id="certifications" class="py-24">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="panel bg-slate-50/90 backdrop-blur-sm">
-      <h2 class="text-3xl md:text-4xl font-bold text-center mb-6 fade-in-up">Certifications &amp; Skills</h2>
-      <p class="text-center text-lg text-slate-600 mb-16 max-w-2xl mx-auto fade-in-up">A commitment to continuous learning and skill validation across key technology domains.</p>
-      <div class="space-y-16">
-        <div class="fade-in-up">
-          <h3 class="cat"><i data-lucide="network"></i>Network, Cloud &amp; Infrastructure</h3>
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="cert"><h4>Mikrotik Certified Network Associate</h4><p>MikroTik</p></div>
-            <div class="cert"><h4>HCIA-AI</h4><p>Huawei</p></div>
-            <div class="cert"><h4>CCNAv7</h4><p>Cisco Networking Academy</p></div>
-            <div class="cert"><h4>CCNA: Introduction to Networks</h4><p>Cisco</p></div>
-            <div class="cert"><h4>Cloud Practitioner Essentials (AWS)</h4><p>Dicoding Indonesia</p></div>
-          </div>
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="section-head reveal">
+          <span class="eyebrow">A little about me</span>
+          <h2>From keeping systems running to teaching machines to learn.</h2>
         </div>
-        <div class="fade-in-up">
-          <h3 class="cat"><i data-lucide="code"></i>Python Programming &amp; Data Analysis</h3>
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="cert"><h4>Python for Beginners</h4><p>Dicoding Academy</p></div>
-            <div class="cert"><h4>Using Python to Interact with the Operating System</h4><p>Google</p></div>
-            <div class="cert"><h4>Data Analysis with Python</h4><p>Dicoding Indonesia</p></div>
-            <div class="cert"><h4>Linear Algebra for ML &amp; Data Science</h4><p>DeepLearning.AI</p></div>
-          </div>
+
+        <div class="about-text reveal">
+          <p>
+            My background started in <strong>IT infrastructure and networking</strong>. I worked with routers, switches, servers, field teams, and the everyday problems that come with keeping technical operations running smoothly.
+          </p>
+          <p>
+            Along the way, I became increasingly interested in <strong>data, machine learning, and AI</strong>. That interest led me to take part in structured programs such as Bangkit and Coding Camp powered by DBS Foundation, where I worked on practical machine-learning projects rather than learning only from theory.
+          </p>
+          <p>
+            Today, I see infrastructure and AI as two parts of the same engineering mindset: understand the system, identify the real problem, build something that works, and keep learning when the first solution isn't enough.
+          </p>
         </div>
-        <div class="fade-in-up">
-          <h3 class="cat"><i data-lucide="brain-circuit"></i>Machine Learning &amp; AI Specialization</h3>
-          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="cert"><h4>Machine Learning Specialization</h4><p>Stanford University</p></div>
-            <div class="cert"><h4>DeepLearning.AI TensorFlow Developer Specialization</h4><p>DeepLearning.AI</p></div>
-            <div class="cert"><h4>Generative AI for Everyone</h4><p>DeepLearning.AI</p></div>
-            <div class="cert"><h4>Applied Machine Learning</h4><p>Dicoding Indonesia</p></div>
-            <div class="cert"><h4>Natural Language Processing in TensorFlow</h4><p>DeepLearning.AI</p></div>
-            <div class="cert"><h4>Advanced Computer Vision with TensorFlow</h4><p>DeepLearning.AI</p></div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Experience</span>
+          <h2>A career built from the ground up.</h2>
+          <p>Each role added a different layer—from field operations and networking to infrastructure management and machine learning.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item reveal">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div class="meta">Jul 2022 — Aug 2025 · 3 yrs 2 mos</div>
+            <h3>IT Officer</h3>
+            <div class="org">Transon Bumindo Resources</div>
+            <div class="place">Morowali, Central Sulawesi, Indonesia</div>
+            <p>Managed and maintained MikroTik-based network and server infrastructure supporting daily mining operations. I also worked on troubleshooting, internal SOPs, cloud storage support, and coordination with other departments.</p>
+            <div class="tag-row"><span class="tag">MikroTik</span><span class="tag">Servers</span><span class="tag">LAN/WAN</span><span class="tag">Troubleshooting</span></div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div class="meta">Feb 2025 — Jul 2025 · 6 mos</div>
+            <h3>Machine Learning Engineer · Coding Camp</h3>
+            <div class="org">Coding Camp powered by DBS Foundation</div>
+            <p>An intensive program where I strengthened my machine-learning foundation while also developing communication, English, and professional skills through structured learning and projects.</p>
+            <div class="tag-row"><span class="tag">Machine Learning</span><span class="tag">Python</span><span class="tag">AI</span></div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div class="meta">Sep 2024 — Dec 2024 · 4 mos</div>
+            <h3>Machine Learning Cohort · Bangkit</h3>
+            <div class="org">Bangkit — Google, GoTo, Traveloka</div>
+            <p>Worked through an intensive machine-learning curriculum and project-based learning environment, with a focus on applying concepts to real problems.</p>
+            <div class="tag-row"><span class="tag">Machine Learning</span><span class="tag">TensorFlow</span><span class="tag">Project-based learning</span></div>
+          </article>
+
+          <article class="timeline-item reveal">
+            <span class="timeline-dot" aria-hidden="true"></span>
+            <div class="meta">Sep 2021 — Feb 2022 · 6 mos</div>
+            <h3>Technical Assistant Leader</h3>
+            <div class="org">PT. Telkom Akses</div>
+            <div class="place">Malang, East Java, Indonesia</div>
+            <p>Led a field technician team in configuring client routers and switches, resolving connectivity issues, and standardizing procedures for technical support work.</p>
+            <div class="tag-row"><span class="tag">Networking</span><span class="tag">Team leadership</span><span class="tag">Field support</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section education" id="education">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Education</span>
+          <h2>The learning path behind the work.</h2>
+          <p class="education-intro">
+            My education has been a mix of formal study, vocational training, and intensive technology programs. The common thread is simple: learn something, then try to use it.
+          </p>
+        </div>
+
+        <div class="edu-grid">
+          <article class="edu-card featured reveal">
+            <div class="edu-year">2022 — 2026</div>
+            <div class="edu-icon"><i data-lucide="graduation-cap"></i></div>
+            <h3>Bachelor's Degree in Informatics</h3>
+            <div class="school">Universitas Siber Asia</div>
+            <p>
+              Distance-learning program in Informatics. Studying while building professional experience gave me a chance to connect academic concepts with the technical problems I encountered in real work.
+            </p>
+            <div class="tag-row"><span class="tag">Informatics</span><span class="tag">Information Technology</span><span class="tag">GPA 3.77 / 4.00</span></div>
+          </article>
+
+          <article class="edu-card reveal">
+            <div class="edu-year">2018 — 2022</div>
+            <div class="edu-icon"><i data-lucide="network"></i></div>
+            <h3>Information Systems, Networks & Applications</h3>
+            <div class="school">SMK Negeri 1 Gedangan</div>
+            <p>
+              Vocational education that gave me an early foundation in computer networks, infrastructure, and practical technical work.
+            </p>
+          </article>
+
+          <article class="edu-card reveal">
+            <div class="edu-year">Selected learning</div>
+            <div class="edu-icon"><i data-lucide="book-open"></i></div>
+            <h3>Continuous Learning</h3>
+            <p>
+              Beyond formal education, I have continued learning through programs and courses in machine learning, TensorFlow, NLP, computer vision, generative AI, cloud, Python, and networking.
+            </p>
+          </article>
+        </div>
+
+        <div class="about-note reveal" style="margin-top:18px">
+          <p><strong>One detail I'm proud of:</strong> during vocational school, I participated as a national participant in the APJII MikroTik Network Olympiad for Vocational High Schools and placed 3rd in the IT Network System Administration Competition at the Malang Regency level.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Selected projects</span>
+          <h2>Where learning became something real.</h2>
+          <p>These projects reflect the direction I've been taking: practical machine learning, NLP, APIs, and systems that can actually be used.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project reveal">
+            <div>
+              <div class="project-top"><span class="eyebrow">01 · Forecasting</span><span class="project-number">2025</span></div>
+              <h3>SkyWatch — Air Quality Forecasting</h3>
+              <p>Built a Bidirectional LSTM model to forecast air quality index across five regions of Jakarta using multi-year historical pollution data.</p>
+            </div>
+            <div>
+              <p class="result">Handled the pipeline from raw data processing through model serving with a REST API integrated into a web platform.</p>
+              <div class="tag-row"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">BiLSTM</span><span class="tag">REST API</span></div>
+            </div>
+          </article>
+
+          <article class="project reveal">
+            <div>
+              <div class="project-top"><span class="eyebrow">02 · NLP / LLM</span><span class="project-number">2024</span></div>
+              <h3>Emergency AI Chatbot</h3>
+              <p>Designed a prompt-engineering workflow and integrated an LLM API to support an AI chatbot feature inside an emergency-response Android application.</p>
+            </div>
+            <div>
+              <p class="result">A project built around making AI useful in a concrete application rather than treating the model as an isolated experiment.</p>
+              <div class="tag-row"><span class="tag">LLM API</span><span class="tag">Prompt Engineering</span><span class="tag">Android</span><span class="tag">AI</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Skills</span>
+          <h2>A practical stack, not just a list of buzzwords.</h2>
+          <p>My strongest foundation is infrastructure and networking, while my current direction is increasingly focused on machine learning and AI.</p>
+        </div>
+
+        <div class="skills-layout">
+          <div class="skill-box reveal">
+            <h3>Machine Learning & AI</h3>
+            <div class="skill-list">
+              <span>Python</span><span>TensorFlow</span><span>Keras</span><span>Scikit-learn</span>
+              <span>Pandas</span><span>NumPy</span><span>Bidirectional LSTM</span><span>BERT</span>
+              <span>BERT Fine-tuning</span><span>HuggingFace Transformers</span><span>Prompt Engineering</span><span>SQuAD QA</span>
+            </div>
+          </div>
+
+          <div class="skill-box reveal">
+            <h3>Infrastructure & Networking</h3>
+            <div class="skill-list">
+              <span>MikroTik</span><span>LAN/WAN</span><span>IP Addressing</span><span>Router Configuration</span>
+              <span>Switch Configuration</span><span>Server Management</span><span>Troubleshooting</span>
+            </div>
+          </div>
+
+          <div class="skill-box reveal">
+            <h3>Development & Tools</h3>
+            <div class="skill-list">
+              <span>SQL</span><span>Bash</span><span>Git</span><span>Jupyter Notebook</span>
+              <span>VS Code</span><span>FastAPI (basic)</span><span>REST API</span><span>API Integration</span>
+            </div>
+          </div>
+
+          <div class="skill-box reveal">
+            <h3>Cloud & Languages</h3>
+            <div class="skill-list">
+              <span>AWS</span><span>GCP</span><span>Indonesian — Native</span>
+              <span>Javanese — Native</span><span>English — Intermediate</span>
+            </div>
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="section" id="certifications">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">Certifications & courses</span>
+          <h2>Still learning.</h2>
+          <p>Selected credentials and courses that complement my formal education and work experience.</p>
+        </div>
+
+        <div class="cert-grid">
+          <div class="cert reveal"><strong>Machine Learning Specialization</strong><span>DeepLearning.AI / Stanford University</span></div>
+          <div class="cert reveal"><strong>TensorFlow Developer Specialization</strong><span>DeepLearning.AI</span></div>
+          <div class="cert reveal"><strong>Natural Language Processing in TensorFlow</strong><span>DeepLearning.AI</span></div>
+          <div class="cert reveal"><strong>Advanced Computer Vision with TensorFlow</strong><span>Dicoding</span></div>
+          <div class="cert reveal"><strong>Generative AI for Everyone</strong><span>DeepLearning.AI</span></div>
+          <div class="cert reveal"><strong>Applied Machine Learning</strong><span>Dicoding</span></div>
+          <div class="cert reveal"><strong>HCIA-AI</strong><span>Huawei</span></div>
+          <div class="cert reveal"><strong>MikroTik Certified Network Associate (MTCNA)</strong><span>MikroTik</span></div>
+          <div class="cert reveal"><strong>Cloud Practitioner Essentials</strong><span>Dicoding</span></div>
+          <div class="cert reveal"><strong>CCNAv7 Introduction to Networks</strong><span>Cisco Networking Academy</span></div>
+          <div class="cert reveal"><strong>Python & Operating Systems</strong><span>Google</span></div>
+          <div class="cert reveal"><strong>Data Analysis with Python</strong><span>Dicoding</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="contact-box reveal">
+          <span class="eyebrow">Let's connect</span>
+          <h2 style="margin-top:14px">Have an interesting problem to solve?</h2>
+          <p>
+            I'm open to conversations about AI, machine learning, infrastructure, technical projects, and opportunities where I can keep learning while contributing something useful.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:bryanazza836@gmail.com"><i data-lucide="mail"></i> Email</a>
+            <a href="https://www.linkedin.com/in/briyan-bayu-pangestu-a290871a7" target="_blank" rel="noopener noreferrer"><i data-lucide="linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/bryanbayup" target="_blank" rel="noopener noreferrer"><i data-lucide="github"></i> GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <span>© <span id="year"></span> Briyan Bayu Pangestu</span>
+      <span>Built with HTML, CSS & JavaScript.</span>
     </div>
-  </div>
-</section>
+  </footer>
 
-<section id="contact" class="py-24 bg-gradient-to-r from-indigo-700 to-purple-800 text-white">
-  <div class="max-w-7xl mx-auto px-6 text-center">
-    <h2 class="text-3xl md:text-4xl font-bold mb-6 fade-in-up">Get In Touch</h2>
-    <p class="text-lg text-indigo-200 mb-10 max-w-2xl mx-auto fade-in-up">I'm always open to new opportunities, collaborations, or just a chat about technology.</p>
-    <div class="flex flex-col md:flex-row justify-center items-center space-y-8 md:space-y-0 md:space-x-12 fade-in-up">
-      <a href="mailto:bryanazza836@gmail.com" class="clink"><i data-lucide="mail"></i><span>bryanazza836@gmail.com</span></a>
-      <a href="https://www.linkedin.com/in/briyan-bayu-pangestu-a290871a7" target="_blank" rel="noopener noreferrer" class="clink"><i data-lucide="linkedin"></i><span>LinkedIn</span></a>
-      <a href="https://github.com/bryanbayup" target="_blank" rel="noopener noreferrer" class="clink"><i data-lucide="github"></i><span>Portfolio</span></a>
-    </div>
-  </div>
-</section>
+  <script>
+    const header = document.getElementById("site-header");
+    const menuButton = document.getElementById("menu-button");
+    const mobileMenu = document.getElementById("mobile-menu");
 
-</main>
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-<footer class="bg-slate-900 text-slate-400 py-12 relative z-10">
-  <div class="max-w-7xl mx-auto px-6 text-center">
-    <p>&copy; <span id="year">2025</span> Briyan Bayu Pangestu. All rights reserved.</p>
-    <p class="text-sm mt-2">Built with <span class="text-indigo-400">Tailwind CSS</span> &amp; <span class="text-indigo-400">Lucide Icons</span>.</p>
-  </div>
-</footer>
+    menuButton.addEventListener("click", () => {
+      const open = mobileMenu.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(open));
+      menuButton.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+    });
 
-<script>
-const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,$=id=>document.getElementById(id);
-$('year').textContent=new Date().getFullYear();
-try{lucide.createIcons()}catch(e){console.error('Lucide failed to load:',e)}
+    mobileMenu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileMenu.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
 
-const btn=$('menu-btn'),menu=$('mobile-menu');
-const setMenu=o=>{menu.classList.toggle('hidden',!o);btn.setAttribute('aria-expanded',o)};
-btn.onclick=()=>setMenu(menu.classList.contains('hidden'));
-menu.querySelectorAll('a').forEach(a=>a.onclick=()=>setMenu(false));
-addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
+    window.addEventListener("scroll", () => {
+      header.classList.toggle("scrolled", window.scrollY > 12);
+    }, { passive: true });
 
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target)}}),{threshold:.1});
-document.querySelectorAll('.fade-in-up').forEach(el=>io.observe(el));
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const revealItems = document.querySelectorAll(".reveal");
 
-const tw=$('typewriter'),roles=['an IT Infrastructure Engineer','an AI & ML Enthusiast','a Network Specialist','a Problem Solver'];
-let r=0,c=0,del=false;
-function type(){
-  const role=roles[r];let t=150;
-  if(del){c--;t=100}else c++;
-  tw.textContent=role.slice(0,c);
-  if(!del&&c===role.length){del=true;t=2000}
-  else if(del&&c===0){del=false;r=(r+1)%roles.length;t=500}
-  setTimeout(type,t)
-}
-if(reduce)tw.textContent=roles[0];else setTimeout(type,500);
+    if (reduceMotion) {
+      revealItems.forEach(el => el.classList.add("visible"));
+    } else {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealItems.forEach(el => observer.observe(el));
+    }
 
-const pc=$('particle-canvas'),px=pc.getContext('2d');
-let W,H,pts=[],lastW=innerWidth;
-const fit=()=>{W=pc.width=innerWidth;H=pc.height=innerHeight};
-const seed=()=>{pts=Array.from({length:Math.min(110,W*H/9000|0)},()=>({x:Math.random()*W,y:Math.random()*H,dx:Math.random()*.4-.2,dy:Math.random()*.4-.2,s:Math.random()*2+1}))};
-function draw(move){
-  px.clearRect(0,0,W,H);
-  px.fillStyle='#a78bfa';
-  for(const a of pts){
-    if(move){if(a.x>W||a.x<0)a.dx=-a.dx;if(a.y>H||a.y<0)a.dy=-a.dy;a.x+=a.dx;a.y+=a.dy}
-    px.beginPath();px.arc(a.x,a.y,a.s,0,6.283);px.fill()
-  }
-  for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
-    const d=(pts[i].x-pts[j].x)**2+(pts[i].y-pts[j].y)**2;
-    if(d<22500){px.strokeStyle='rgba(167,139,250,'+(1-d/22500)+')';px.beginPath();px.moveTo(pts[i].x,pts[i].y);px.lineTo(pts[j].x,pts[j].y);px.stroke()}
-  }
-}
-const loop=()=>{draw(true);requestAnimationFrame(loop)};
-fit();seed();
-if(reduce)draw(false);else loop();
-addEventListener('resize',()=>{fit();if(innerWidth!==lastW){lastW=innerWidth;seed()}if(reduce)draw(false)});
-
-addEventListener('load',()=>{
-  const mc=$('matrix-canvas'),box=mc.parentElement;
-  if(reduce||!box.clientWidth)return;
-  mc.width=box.clientWidth;mc.height=box.clientHeight;
-  const g=mc.getContext('2d'),fs=10,chars='アァカサタナハマヤャラワガザダバパイィキシチニヒミリギジビピウゥクスツヌフムユュルグズブプエェケセテネヘメレゲゼデベペオォコソトノホモヨョロゴゾドボポッン10'.split(''),drops=new Array(Math.floor(mc.width/fs)).fill(1);
-  setInterval(()=>{
-    if(document.hidden)return;
-    g.fillStyle='rgba(0,0,0,.05)';g.fillRect(0,0,mc.width,mc.height);
-    g.fillStyle='#dc2626';g.font=fs+'px arial';
-    drops.forEach((d,i)=>{g.fillText(chars[Math.random()*chars.length|0],i*fs,d*fs);drops[i]=d*fs>mc.height&&Math.random()>.975?1:d+1})
-  },40)
-});
-</script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>
